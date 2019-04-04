@@ -3,11 +3,11 @@ package representarDatos;
 public class Egresado{
   private String nombre;
   private String profesion;
-  private float promedio;
+  private double promedio;
 
   public Egresado(){}
 
-  public Egresado(String nombre, String profesion, float promedio){
+  public Egresado(String nombre, String profesion, double promedio){
     this.nombre = nombre;
     this.profesion = profesion;
     this.promedio = promedio;
@@ -21,7 +21,7 @@ public class Egresado{
 
   public void setProfesion(String profesion){this.profesion = profesion;}
 
-  public float getPromedio(){return promedio;}
+  public double getPromedio(){return promedio;}
 
-  public void setPromedio(float promedio){this.promedio = promedio;}
+  public void setPromedio(double promedio){this.promedio = promedio;}
 }
