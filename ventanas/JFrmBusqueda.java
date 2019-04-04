@@ -24,7 +24,7 @@ public class JFrmBusqueda extends JFrame{
   private JButton botonModificar = new JButton("Modificar");
 
   public JFrmBusqueda(){
-    setSize(450, 250);
+    setSize(600, 250);
     setLocationRelativeTo(null);
     Font fuente = new Font("Ebrima", 3, 20);
     setFont(fuente);
@@ -54,27 +54,21 @@ public class JFrmBusqueda extends JFrame{
 
     //Poner los botones en un JPanel
     JPanel panelBotonesBuscar = new JPanel();
+    panelBotonesBuscar.add(new JLabel("Seleccione los campos que quiere encontrar:  "));
     panelBotonesBuscar.add(bNombre);
     panelBotonesBuscar.add(bPromedio);
     panelBotonesBuscar.add(bProfesion);
 
-    JPanel primeraEtiquetaPanel = new JPanel();
-    primeraEtiquetaPanel.add(new JLabel("Seleccione los campos que quiere encontrar"));
-
-    JPanel panelSeleccionarOrdenamiento = new JPanel();
-    panelSeleccionarOrdenamiento.add(new JLabel("Seleccione un metodo de agrupamiento"));
-
-
     JPanel panelBotonesAgrupar = new JPanel();
+    panelBotonesAgrupar.add(new JLabel("Seleccione un metodo de agrupamiento:  "));
     panelBotonesAgrupar.add(bOR);
     panelBotonesAgrupar.add(bAND);
 
     //Poner los paneles en el panel principal
     JPanel panel = new JPanel();
     panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-    panel.add(primeraEtiquetaPanel);
+    panel.add(new JLabel(" "));
     panel.add(panelBotonesBuscar);
-    panel.add(panelSeleccionarOrdenamiento);
     panel.add(panelBotonesAgrupar);
 
     /**
@@ -82,14 +76,12 @@ public class JFrmBusqueda extends JFrame{
     */
       JPanel panelBBuscar = new JPanel();
       panelBBuscar.add(botonBuscar);
-
-      JPanel panelsubBotones = new JPanel();
-      panelsubBotones.add(botonCambiarArchivo);
-      panelsubBotones.add(new JLabel("         "));
-      panelsubBotones.add(botonModificar);
+      panelBBuscar.add(new JLabel("      "));
+      panelBBuscar.add(botonCambiarArchivo);
+      panelBBuscar.add(new JLabel("      "));
+      panelBBuscar.add(botonModificar);
 
       panel.add(panelBBuscar);
-      panel.add(panelsubBotones);
 
 
 
