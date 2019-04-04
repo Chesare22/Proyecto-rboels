@@ -1,11 +1,15 @@
 package seleccionarFiltro;
 
 import javax.swing.JRadioButton;
-import representarDatos.Egresados;
 
 public abstract class BotonAgrupar extends JRadioButton{
   public BotonAgrupar(String text){
     super(text);
   }
-  public abstract Egresados agrupar(Egresados[] e);
+  /**
+  *Agrupa los datos según el operador lógico seleccionado
+  *@param datos Datos a agrupar.
+  *@return Indices de los egresados.
+  */
+  public abstract int[] agrupar(int[][] datos);
 }
