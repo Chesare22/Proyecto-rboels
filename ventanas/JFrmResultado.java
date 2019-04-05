@@ -75,22 +75,22 @@ public class JFrmResultado extends JFrame{
 
   public static void main(String[] args) {
     Egresado[] e = new Egresado[15];
-    e[0] = new Egresado("Juanito","Carpintero",6.9);
-    e[1] = new Egresado("Juanito","Carnicero",6.8);
-    e[2] = new Egresado("PEPE","Maestrazo",120.8);
-    e[3] = new Egresado("Juanito","Carpintero",6.9);
-    e[4] = new Egresado("Juanito","Carnicero",6.8);
-    e[5] = new Egresado("PEPE","Maestrazo",120.8);
-    e[6] = new Egresado("Juanito","Carpintero",6.9);
-    e[7] = new Egresado("Juanito","Carnicero",6.8);
-    e[8] = new Egresado("PEPE","Maestrazo",120.8);
-    e[9] = new Egresado("Juanito","Carpintero",6.9);
-    e[10] = new Egresado("Juanito","Carnicero",6.8);
-    e[11] = new Egresado("PEPE","Maestrazo",120.8);
-    e[12] = new Egresado("Juanito","Carpintero",6.9);
-    e[13] = new Egresado("Juanito","Carnicero",6.8);
-    e[14] = new Egresado("PEPE","Maestrazo",120.8);
-    //e[15] = new Egresado("PEPE","Maestrazo",120.8);
+    e[0] = new Egresado("Juan","Contador",6.9);
+    e[1] = new Egresado("Emilio","Licenciado",6.8);
+    e[2] = new Egresado("Eduardo","Maestro",120.8);
+    e[3] = new Egresado("Juan","Contador",6.9);
+    e[4] = new Egresado("Emilio","Licenciado",6.8);
+    e[5] = new Egresado("Eduardo","Maestro",120.8);
+    e[6] = new Egresado("Juan","Contador",6.9);
+    e[7] = new Egresado("Emilio","Licenciado",6.8);
+    e[8] = new Egresado("Eduardo","Maestro",120.8);
+    e[9] = new Egresado("Juan","Contador",6.9);
+    e[10] = new Egresado("Emilio","Licenciado",6.8);
+    e[11] = new Egresado("Eduardo","Maestro",120.8);
+    e[12] = new Egresado("Juan","Contador",6.9);
+    e[13] = new Egresado("Emilio","Licenciado",6.8);
+    e[14] = new Egresado("Eduardo","Maestro",120.8);
+    //e[15] = new Egresado("Eduardo","Maestro",120.8);
 
 
     JFrmResultado frameTabla = new JFrmResultado("Egresados",e);
