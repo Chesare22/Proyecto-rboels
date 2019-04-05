@@ -87,6 +87,7 @@ public class JFrmBusqueda extends JFrame{
     panel.add(new JLabel(" "));
     panel.add(panelBotonesBuscar);
     panel.add(panelBotonesAgrupar);
+    panel.add(panelBotonesArboles);
 
     /**
     Seccion para añadir los botones
