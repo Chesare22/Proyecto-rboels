@@ -17,8 +17,9 @@ import java.awt.Font;
 
 public class JFrmBusqueda extends JFrame{
 
-  private GrupoBotonAgrupar botonesAgruparLogicos = new GrupoBotonAgrupar();
-  private GrupoBotonBuscar botonesBusqueda = new GrupoBotonBuscar();
+  private GrupoBotonAgrupar botonesAgruparLogicos = new GrupoBotonAgrupar();//Grupo de radioButtons para seleccionar un tipo de agrupación de datos
+  private GrupoBotonAgrupar botonesArboles = new GrupoBotonAgrupar();//Grupo de radioButtons para seleccionar el tipo de árbol que se desea usar
+  private GrupoBotonBuscar botonesBusqueda = new GrupoBotonBuscar();//Grupo de checkBoxs para seleccionar cómo se van a hacer las búsquedas
   private JButton botonBuscar = new JButton("Buscar");
   private JButton botonCambiarArchivo = new JButton("Cambiar Archivo");
   private JButton botonModificar = new JButton("Modificar");
@@ -43,6 +44,10 @@ public class JFrmBusqueda extends JFrame{
     //Declaración de los botones para agrupar con operadores lógicos
     BotonOR bOR = new BotonOR();
     BotonAND bAND = new BotonAND();
+
+    //Declaración de los botones para el tipo de árbol
+
+
 
     //Agrupar los botones
     botonesBusqueda.add(bNombre);
