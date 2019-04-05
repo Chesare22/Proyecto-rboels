@@ -46,7 +46,9 @@ public class JFrmBusqueda extends JFrame{
     BotonAND bAND = new BotonAND();
 
     //Declaración de los botones para el tipo de árbol
-
+    BotonArbolAbb treeAbb = new BotonArbolAbb();
+    BotonArbolAvl treeAvl = new BotonArbolAvl();
+    BotonArbolAb treeAb = new BotonArbolAb();
 
 
     //Agrupar los botones
@@ -57,7 +59,11 @@ public class JFrmBusqueda extends JFrame{
     botonesAgruparLogicos.add(bOR);
     botonesAgruparLogicos.add(bAND);
 
-    //Poner los botones en un JPanel
+    botonesArboles.add(treeAbb);
+    botonesArboles.add(treeAb);
+    botonesArboles.add(treeAvl);
+
+    /**Sección para poner los botones (por grupos) en un JPanel*/
     JPanel panelBotonesBuscar = new JPanel();
     panelBotonesBuscar.add(new JLabel("Seleccione los campos que quiere encontrar:  "));
     panelBotonesBuscar.add(bNombre);
@@ -68,6 +74,12 @@ public class JFrmBusqueda extends JFrame{
     panelBotonesAgrupar.add(new JLabel("Seleccione un metodo de agrupamiento:  "));
     panelBotonesAgrupar.add(bOR);
     panelBotonesAgrupar.add(bAND);
+
+    JPanel panelBotonesArboles = new JPanel();
+    panelBotonesArboles.add(new JLabel("Seleccione un tipo de arbol:  "));
+    panelBotonesArboles.add(treeAbb);
+    panelBotonesArboles.add(treeAb);
+    panelBotonesArboles.add(treeAvl);
 
     //Poner los paneles en el panel principal
     JPanel panel = new JPanel();
