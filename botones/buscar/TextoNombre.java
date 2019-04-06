@@ -1,4 +1,4 @@
-package seleccionarFiltro.buscar;
+package botones.buscar;
 
 public class TextoNombre extends TextoBuscar{
   public TextoNombre(){

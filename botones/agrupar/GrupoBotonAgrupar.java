@@ -1,4 +1,4 @@
-package seleccionarFiltro.arboles;
+package botones.agrupar;
 
 import java.util.Vector;
 // Administración de eventos.
@@ -6,20 +6,20 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
-*Clase que maneja la selección de los BotonArbol especificados.
+*Clase que maneja la selección de los BotonAgrupar especificados.
 */
-public class GrupoBotonArbol{
+public class GrupoBotonAgrupar{
   /**
   *Lista de botones.
   */
-  protected Vector<BotonArbol> buttons = new Vector<BotonArbol>();
+  protected Vector<BotonAgrupar> buttons = new Vector<BotonAgrupar>();
 
   /**
   *Añade el botón a la lista de elementos.
   *También le añade un ActionListener para que
   *no haya más de un botón selecionado.
   */
-  public void add(BotonArbol button){
+  public void add(BotonAgrupar button){
     button.addActionListener(new Seleccionado());
     buttons.addElement(button);
   }
@@ -27,8 +27,8 @@ public class GrupoBotonArbol{
   /**
   *Devuelve el botón que se encuentra seleccionado actualmente.
   */
-  public BotonArbol getSelection(){
-    for(BotonArbol button : buttons){
+  public BotonAgrupar getSelection(){
+    for(BotonAgrupar button : buttons){
       if(button.isSelected())
         return button;
     }
@@ -41,7 +41,7 @@ public class GrupoBotonArbol{
 
   /**
   *Manejador de eventos.
-  *Se debe asociar con cada BotonArbol del grupo.
+  *Se debe asociar con cada BotonAgrupar del grupo.
   *Es el encargado de que no haya más de un botón seleccionado.
   */
   private class Seleccionado implements ActionListener{
@@ -52,10 +52,10 @@ public class GrupoBotonArbol{
     */
     @Override
     public void actionPerformed(ActionEvent e){
-      for(BotonArbol button : buttons){
+      for(BotonAgrupar button : buttons){
         button.setSelected(false);
       }
-      ((BotonArbol)e.getSource()).setSelected(true);
+      ((BotonAgrupar)e.getSource()).setSelected(true);
     }
   }
 }

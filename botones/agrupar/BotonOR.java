@@ -1,4 +1,4 @@
-package seleccionarFiltro.agrupar;
+package botones.agrupar;
 
 public class BotonOR extends BotonAgrupar{
   public BotonOR(){

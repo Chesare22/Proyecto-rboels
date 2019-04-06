@@ -1,12 +1,15 @@
 package ventanas;
 
-import seleccionarFiltro.agrupar.*;
+import botones.agrupar.*;
 
 //Componentes de swing
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+
+//personalización de botonesAgruparLogicos
+import java.awt.Color;
 
 //Layouts
 import javax.swing.BoxLayout;
@@ -47,6 +50,12 @@ public class JFrmAgrupar extends JFrame{
     //Declaración de los botones aceptar y cancelar
     botonAceptar = new JButton("Aceptar");
     botonCancelar = new JButton("Cancelar");
+
+    //personalización de los botones
+    botonAceptar.setForeground(Color.WHITE);
+    botonAceptar.setBackground(new Color(51, 153, 0));
+    botonCancelar.setForeground(Color.WHITE);
+    botonCancelar.setBackground(new Color(204,0,0));
 
     //Agrupo los botones
     botonesAgruparLogicos.add(bOR);

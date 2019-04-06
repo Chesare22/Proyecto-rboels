@@ -1,4 +1,4 @@
-package seleccionarFiltro.arboles;
+package botones.arboles;
 
 public class BotonArbolAbb extends BotonArbol{
   public BotonArbolAbb(){
