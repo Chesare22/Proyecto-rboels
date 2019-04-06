@@ -1,6 +1,6 @@
 package ventanas;
 
-import seleccionarFiltro.agrupar.*;
+import botones.agrupar.*;
 
 //Componentes de swing
 import javax.swing.JButton;

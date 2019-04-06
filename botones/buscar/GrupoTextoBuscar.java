@@ -1,4 +1,4 @@
-package seleccionarFiltro.buscar;
+package botones.buscar;
 
 import java.util.Vector;
 

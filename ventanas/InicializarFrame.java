@@ -7,7 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import seleccionarFiltro.arboles.*;
+import botones.arboles.*;
 
 //Layouts
 import javax.swing.BoxLayout;

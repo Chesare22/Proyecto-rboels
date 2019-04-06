@@ -1,4 +1,4 @@
-package seleccionarFiltro.buscar;
+package botones.buscar;
 
 import javax.swing.JTextField;
 

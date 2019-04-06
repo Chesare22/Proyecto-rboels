@@ -1,6 +1,6 @@
 package ventanas;
 
-import seleccionarFiltro.buscar.*;
+import botones.buscar.*;
 
 //Componentes de swing
 import javax.swing.JButton;
