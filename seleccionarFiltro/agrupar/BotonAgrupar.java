@@ -1,4 +1,4 @@
-package seleccionarFiltro;
+package seleccionarFiltro.agrupar;
 
 import javax.swing.JRadioButton;
 

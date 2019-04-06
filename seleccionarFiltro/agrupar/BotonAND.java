@@ -1,4 +1,4 @@
-package seleccionarFiltro;
+package seleccionarFiltro.agrupar;
 
 public class BotonAND extends BotonAgrupar{
   public BotonAND(){

@@ -1,4 +1,4 @@
-package seleccionarFiltro;
+package seleccionarFiltro.agrupar;
 
 import java.util.Vector;
 // Administración de eventos.
