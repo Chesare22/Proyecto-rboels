@@ -7,6 +7,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
+import seleccionarFiltro.arboles.*;
+
 //Layouts
 import javax.swing.BoxLayout;
 
@@ -23,6 +25,7 @@ public final class InicializarFrame extends JFrame {
     protected JTextField cajaTexto;
     protected JButton botonAceptar;
     protected JButton botonCancelar;
+    protected GrupoBotonArbol botonesArbol = new GrupoBotonArbol();
 
     /**
      * Metodo para inicializar el Frame con valores predeterminados
@@ -44,9 +47,27 @@ public final class InicializarFrame extends JFrame {
       botonAceptar = new JButton("Aceptar");
       botonCancelar = new JButton("Cancelar");
 
+      //Botones de los arboles
+      BotonArbolAbb botonABB = new BotonArbolAbb();
+      BotonArbolAvl botonAVL = new BotonArbolAvl();
+      BotonArbolB botonB = new BotonArbolB();
+
+      //Añado los botones al grupo
+      botonesArbol.add(botonABB);
+      botonesArbol.add(botonAVL);
+      botonesArbol.add(botonB);
+
+      //Añado los botones a un panel
+      JPanel botonesArbolPanel = new JPanel();
+      botonesArbolPanel.add(botonABB);
+      botonesArbolPanel.add(botonAVL);
+      botonesArbolPanel.add(botonB);
+
       JPanel archivoPanel = new JPanel();
       archivoPanel.add(new JLabel("Archivo:"));
       archivoPanel.add(cajaTexto);
+
+      botonesArbol.setSelected(0);
 
       JPanel espaciosBlancos = new JPanel();
       espaciosBlancos.setLayout(new BoxLayout(espaciosBlancos, BoxLayout.Y_AXIS));
@@ -64,6 +85,7 @@ public final class InicializarFrame extends JFrame {
       //Le meto espacios en blanco
       panel.add(espaciosBlancos);
       panel.add(archivoPanel);
+      panel.add(botonesArbolPanel);
       panel.add(botones);
 
       add(panel);

@@ -27,11 +27,14 @@ public class JFrmAgrupar extends JFrame{
   }
 
   public void initComponents(String[] busquedas){
-    String e = "Buscar por ";
+    String e = "";
     for(int i = 0; i < busquedas.length-1;i++){
       e = e.concat(busquedas[i]).concat(" __ ");
     }
     encabezado = new JLabel(e.concat(busquedas[busquedas.length-1]));
+
+    JPanel panel1 = new JPanel();
+    panel1.add(new JLabel("Buscar Por:"));
 
     //JPanel del encabezado
     JPanel encabezadoPanel = new JPanel();
@@ -60,10 +63,13 @@ public class JFrmAgrupar extends JFrame{
     panelBotonesAC.add(new JLabel("   "));
     panelBotonesAC.add(botonCancelar);
 
+    botonesAgruparLogicos.setSelected(0);
+
     //Panel principal
     JPanel panel = new JPanel();
     panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
     panel.add(new JLabel(" "));
+    panel.add(panel1);
     panel.add(encabezadoPanel);
     panel.add(panelBotonesAgrupar);
     panel.add(panelBotonesAC);
@@ -72,10 +78,10 @@ public class JFrmAgrupar extends JFrame{
   }
 
   public static void main(String[] args) {
-    String[] datos = new String[2];
+    String[] datos = new String[3];
     datos[0] = "Nombre";
     datos[1] = "Profesion";
-    //datos[2] = "Promedio";
+    datos[2] = "Promedio";
 
     JFrmAgrupar ventanaBusqueda = new JFrmAgrupar(datos);
     ventanaBusqueda.setVisible(true);
