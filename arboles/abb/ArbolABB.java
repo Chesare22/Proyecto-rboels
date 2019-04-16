@@ -13,8 +13,8 @@ import arboles.MyDatum;
 public class ArbolABB {
   protected NodoBin raiz;
 
-  public ArbolABB(){
-    this(null);
+  public ArbolABB(double dato, int indice){
+    this(new MyDatum(dato, indice));
   }
 
   public ArbolABB(MyDatum o){
@@ -100,26 +100,34 @@ public class ArbolABB {
      }
   }
 
-  public Integer[] buscar(MyDatum o){
+  public boolean contains(double dato){
+    if(buscar(dato) == null){
+      return false;
+    }else{
+      return true;
+    }
+  }
+
+  public MyDatum buscar(double o){
     return buscar(raiz,o);
   }
 
-  private Integer[] buscar(NodoBin n, MyDatum o) throws ItemNotFoundException{
-  if (o.getClave()<n.getDato().getClave()){
+  private MyDatum buscar(NodoBin n, double o){
+  if (o<n.getDato().getClave()){
      if (n.getIzq()==null)
-         throw new ItemNotFoundException("No está el dato :(");
+         return null;
      else
         return buscar(n.getIzq(),o);
      }
   else{
-  if(o.getClave()>n.getDato().getClave()){
+  if(o>n.getDato().getClave()){
     if (n.getDer()==null)
-       throw new ItemNotFoundException("No está el dato :(");
+       return null;
     else
        return buscar(n.getDer(),o);
      }
   else
-     return o.getIndices();
+     return n.getDato();
      }
   }
     /**
