@@ -5,6 +5,7 @@
 package arboles.avl;
 
 import arboles.MyDatum;
+import arboles.abb.ArbolABB;
 
 /**
  *
@@ -38,6 +39,10 @@ public class ArbolAVL {
 
     public void insertar(MyDatum o){
     insertarOrdenado(raiz,o);
+  }
+
+  public ArbolABB toABB(){
+    return new ArbolABB(raiz);
   }
 
    private void insertarOrdenado(NodoAVL n, MyDatum o){

@@ -21,6 +21,10 @@ public class ArbolABB {
     raiz = new NodoBin(o);
   }
 
+  public ArbolABB(NodoBin raiz){
+    this.raiz = raiz;
+  }
+
   public void inOrden(){
     if(raiz!=null)
         raiz.inOrden();
