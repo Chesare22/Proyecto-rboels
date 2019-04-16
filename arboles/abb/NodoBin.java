@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package abb;
+package arboles.abb;
 
 /**
  *
@@ -22,11 +22,11 @@ public class NodoBin {
     public NodoBin(Object dato){
        this(dato,null,null);
     }
-    
+
     public NodoBin(){
         this(null);
     }
-    
+
     /**
      * @return the dato
      */
@@ -36,21 +36,21 @@ public class NodoBin {
 
     public void posOrden(){
        if(izq!=null)
-           izq.posOrden();     
+           izq.posOrden();
        if(der!=null)
            der.posOrden();
        System.out.println(dato);//Raiz
     }
-    
+
     public void preOrden(){
-    System.out.println(dato);//Raiz    
+    System.out.println(dato);//Raiz
     if(izq!=null)
-           izq.preOrden();     
+           izq.preOrden();
        if(der!=null)
            der.preOrden();
-       
+
     }
-    
+
     public void inOrden(){ //IRD
        if(izq!=null)
            izq.inOrden();
@@ -58,7 +58,7 @@ public class NodoBin {
        if(der!=null)
            der.inOrden();
     }
-    
+
     /**
      * @param dato the dato to set
      */
@@ -93,6 +93,6 @@ public class NodoBin {
     public void setDer(NodoBin der) {
         this.der = der;
     }
-    
-    
+
+
 }

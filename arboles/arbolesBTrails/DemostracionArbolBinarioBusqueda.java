@@ -1,4 +1,4 @@
-package arbolesBTrails;
+package arboles.arbolesBTrails;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -63,7 +63,7 @@ public class DemostracionArbolBinarioBusqueda {
                 + "\n7 para vaciar el arbol "
                 + "\n8 para salir del programa ");
     }
-    
+
     private static class Entrada {
 
         private static int leerInt(String texto) {

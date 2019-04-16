@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package avl;
+package arboles.avl;
 
-import abb.NodoBin;
+import arboles.abb.NodoBin;
 
 /**
  *
@@ -15,28 +15,28 @@ public class NodoAVL extends NodoBin{
     protected NodoAVL padre;
 
     public NodoAVL(){}
-    
+
     public NodoAVL(Object o){
         super(o);
     }
-    
+
     public NodoAVL(Object o,NodoAVL i, NodoAVL d){
         super(o,d,i);
     }
-    
+
     public NodoAVL(Object o,NodoAVL i, NodoAVL d, NodoAVL p){
         super(o,d,i);
         padre = p;
     }
-    
+
     public static int altura(NodoAVL a){
        if (a == null)
            return -1;
        else
-           return 1 + 
+           return 1 +
            Math.max(altura((NodoAVL)a.getIzq()), altura((NodoAVL)a.getDer()));
     }
-    
+
     public void inOrden(){
     if(izq!=null)
            ((NodoAVL)izq).inOrden();
@@ -44,23 +44,23 @@ public class NodoAVL extends NodoBin{
        if(der!=null)
            ((NodoAVL)der).inOrden();
     }
-    
+
     public void preOrden(){
     System.out.println(dato + "| FE :" + FE);//Raiz
         if(izq!=null)
-           ((NodoAVL)izq).preOrden();     
+           ((NodoAVL)izq).preOrden();
        if(der!=null)
            ((NodoAVL)der).preOrden();
     }
-    
-    public void posOrden(){    
+
+    public void posOrden(){
         if(izq!=null)
-           ((NodoAVL)izq).posOrden();     
+           ((NodoAVL)izq).posOrden();
        if(der!=null)
            ((NodoAVL)der).posOrden();
        System.out.println(dato + "| FE :" + FE);//Raiz
     }
-    
+
     /**
      * @return the FE
      */
@@ -88,5 +88,5 @@ public class NodoAVL extends NodoBin{
     public void setPadre(NodoAVL padre) {
         this.padre = padre;
     }
-    
+
 }

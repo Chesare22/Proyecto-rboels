@@ -1,4 +1,4 @@
-package arbolesBTrails;
+package arboles.arbolesBTrails;
 
 public class ArbolBinarioBusqueda {
 
@@ -9,7 +9,7 @@ public class ArbolBinarioBusqueda {
     }
 
     public void insertar(int iElemento) {
-        if (nodoRaiz == null) //Árbol vacío
+        if (nodoRaiz == null) //Arbol vacio
         {
             nodoRaiz = new NodoArbolBinario(iElemento);
         } else {
