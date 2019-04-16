@@ -4,6 +4,8 @@
  */
 package arboles.abb;
 
+import arboles.MyDatum;
+
 /**
  *
  * @author jorge.reyes
@@ -15,7 +17,7 @@ public class ArbolABB {
     this(null);
   }
 
-  public ArbolABB(Object o){
+  public ArbolABB(MyDatum o){
     raiz = new NodoBin(o);
   }
 
@@ -34,22 +36,22 @@ public class ArbolABB {
         raiz.preOrden();
   }
 
-  public void insertar(Object o){
+  public void insertar(MyDatum o){
     insertarOrdenado(raiz,o);
   }
 
-  public void borrar(Object o){
+  public void borrar(MyDatum o){
     borrar(raiz,o);
   }
 
-  private NodoBin borrar(NodoBin n, Object o) throws ItemNotFoundException{
+  private NodoBin borrar(NodoBin n, MyDatum o) throws ItemNotFoundException{
     if (n==null)
         throw new ItemNotFoundException("Elemento no encontrado");
     else{
-      if ((int)o > (int)n.getDato())
+      if (o.getClave() > n.getDato().getClave())
         n.setDer(borrar(n.getDer(),o));
       else
-         if((int)o < (int)n.getDato())
+         if(o.getClave() < n.getDato().getClave())
             n.setIzq(borrar(n.getIzq(),o));
          else{//Ya encontré el elemento a eliminar!!
            if (n.getDer()!=null && n.getIzq()!=null)//Aquí aplicamos los criterios cuando hay 2 hijos
@@ -81,15 +83,15 @@ public class ArbolABB {
        return n.getDer();
   }
 
-  private void insertarOrdenado(NodoBin n, Object o){
-  if ((int)o<(int)n.getDato()){
+  private void insertarOrdenado(NodoBin n, MyDatum o){
+  if (o.getClave()<n.getDato().getClave()){
      if (n.getIzq()==null)
          n.setIzq(new NodoBin(o));
      else
          insertarOrdenado(n.getIzq(),o);
      }
   else{
-  if((int)o>(int)n.getDato()){
+  if(o.getClave()>n.getDato().getClave()){
     if (n.getDer()==null)
        n.setDer(new NodoBin(o));
     else
@@ -98,32 +100,32 @@ public class ArbolABB {
      }
   }
 
-  public void buscar(Object o){
-    buscar(raiz,o);
+  public Integer[] buscar(MyDatum o){
+    return buscar(raiz,o);
   }
 
-  private void buscar(NodoBin n, Object o) throws ItemNotFoundException{
-  if ((int)o<(int)n.getDato()){
+  private Integer[] buscar(NodoBin n, MyDatum o) throws ItemNotFoundException{
+  if (o.getClave()<n.getDato().getClave()){
      if (n.getIzq()==null)
          throw new ItemNotFoundException("No está el dato :(");
      else
-         buscar(n.getIzq(),o);
+        return buscar(n.getIzq(),o);
      }
   else{
-  if((int)o>(int)n.getDato()){
+  if(o.getClave()>n.getDato().getClave()){
     if (n.getDer()==null)
        throw new ItemNotFoundException("No está el dato :(");
     else
-       buscar(n.getDer(),o);
+       return buscar(n.getDer(),o);
      }
   else
-     System.out.println("El dato si está en el árbol");
+     return o.getIndices();
      }
   }
     /**
      * @return the raiz
      */
-    public Object getRaiz() {
+    public MyDatum getRaiz() {
         return raiz.getDato();
     }
 
@@ -134,7 +136,7 @@ public class ArbolABB {
         this.raiz = raiz;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
       ArbolABB arbol = new ArbolABB(25);
 //      arbol.insertar(73);
 //      arbol.insertar(48);
@@ -176,7 +178,7 @@ public class ArbolABB {
         }
       catch(ItemNotFoundException e){
           System.out.println("Error: " + e.getMessage());
-      }*/
+      }
       int eliminado = 48;
       System.out.println("Eliminando el elemento: " + eliminado);
       try{
@@ -186,5 +188,5 @@ public class ArbolABB {
       catch (ItemNotFoundException e){
           System.out.println("Error: " + e.getMessage());
       }
-    }
+    }*/
 }

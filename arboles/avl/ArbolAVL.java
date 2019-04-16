@@ -4,6 +4,8 @@
  */
 package arboles.avl;
 
+import arboles.MyDatum;
+
 /**
  *
  * @author jorge.reyes
@@ -15,7 +17,7 @@ public class ArbolAVL {
       raiz = null;
     }
 
-    public ArbolAVL(Object o){
+    public ArbolAVL(MyDatum o){
       raiz = new NodoAVL(o);
     }
 
@@ -34,12 +36,12 @@ public class ArbolAVL {
            raiz.posOrden();
     }
 
-    public void insertar(Object o){
+    public void insertar(MyDatum o){
     insertarOrdenado(raiz,o);
   }
 
-   private void insertarOrdenado(NodoAVL n, Object o){
-  if ((int)o<(int)n.getDato()){
+   private void insertarOrdenado(NodoAVL n, MyDatum o){
+  if (o.getClave()<n.getDato().getClave()){
      if (n.getIzq()==null){
          n.setIzq(new NodoAVL(o,null,null,n));
          recalcularFE(n);
@@ -48,7 +50,7 @@ public class ArbolAVL {
          insertarOrdenado((NodoAVL)n.getIzq(),o);
      }
   else{
-  if((int)o>(int)n.getDato()){
+  if(o.getClave()>n.getDato().getClave()){
     if (n.getDer()==null){
        n.setDer(new NodoAVL(o,null,null,n));
        recalcularFE(n);
@@ -159,6 +161,7 @@ public class ArbolAVL {
      Q.setFE(0);
    }
 
+
    public void rotacionID(NodoAVL nodo){
      NodoAVL Padre = nodo.getPadre();
      NodoAVL P = nodo;
@@ -251,7 +254,7 @@ public class ArbolAVL {
      R.setFE(0);
    }
 
-    public static void main(String[] args) {
+  /*  public static void main(String[] args) {
     ArbolAVL arbol = new ArbolAVL(55);
     arbol.insertar(34);
     arbol.insertar(23);
@@ -264,6 +267,6 @@ public class ArbolAVL {
     arbol.inOrden();
 
     }
-
+*/
 
 }

@@ -4,22 +4,24 @@
  */
 package arboles.abb;
 
+import arboles.MyDatum;
+
 /**
  *
  * @author jorge.reyes
  */
 public class NodoBin {
-    protected Object dato;
+    protected MyDatum dato;
     protected NodoBin izq;
     protected NodoBin der;
 
-    public NodoBin(Object dato, NodoBin izq, NodoBin der) {
+    public NodoBin(MyDatum dato, NodoBin izq, NodoBin der) {
         this.dato = dato;
         this.izq = izq;
         this.der = der;
     }
 
-    public NodoBin(Object dato){
+    public NodoBin(MyDatum dato){
        this(dato,null,null);
     }
 
@@ -30,7 +32,7 @@ public class NodoBin {
     /**
      * @return the dato
      */
-    public Object getDato() {
+    public MyDatum getDato() {
         return dato;
     }
 
@@ -62,7 +64,7 @@ public class NodoBin {
     /**
      * @param dato the dato to set
      */
-    public void setDato(Object dato) {
+    public void setDato(MyDatum dato) {
         this.dato = dato;
     }
 

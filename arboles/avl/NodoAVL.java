@@ -5,6 +5,7 @@
 package arboles.avl;
 
 import arboles.abb.NodoBin;
+import arboles.MyDatum;
 
 /**
  *
@@ -16,15 +17,15 @@ public class NodoAVL extends NodoBin{
 
     public NodoAVL(){}
 
-    public NodoAVL(Object o){
+    public NodoAVL(MyDatum o){
         super(o);
     }
 
-    public NodoAVL(Object o,NodoAVL i, NodoAVL d){
+    public NodoAVL(MyDatum o,NodoAVL i, NodoAVL d){
         super(o,d,i);
     }
 
-    public NodoAVL(Object o,NodoAVL i, NodoAVL d, NodoAVL p){
+    public NodoAVL(MyDatum o,NodoAVL i, NodoAVL d, NodoAVL p){
         super(o,d,i);
         padre = p;
     }
