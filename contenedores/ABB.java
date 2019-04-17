@@ -1,15 +1,32 @@
+/**
+*Esta clase implementa la interface Arbol para poder manipular los datos
+*y sirve para obtener y devolver arreglos o datos en general
+*/
+
 package contenedores;
 
 import arboles.abb.ArbolABB;
 import arboles.MyDatum;
 
 public class ABB implements Arbol{
-  private ArbolABB arbol;
 
+  private ArbolABB arbol;//Variable de tipo Arbol ABB con la que se manipularán los datos
+
+  /**
+  *Constructor de la clase
+  *@param dato Es el valor (en double) de la cadena que se encontró en el archivo
+  *@param indice Es el renglón en el que se encuentra el dato en el archivo
+  */
   public ABB(double dato, int indice){
-    arbol = new ArbolABB(dato, indice);
+    arbol = new ArbolABB(dato, indice);//Se crea un árbol ABB conforme se van encontrando los datos
   }
 
+  /**
+  *Método de la interface que añade el índice del dato especificado
+  *Si el dato está repetido, se le agrega el índice del elemento repetido
+  *@param dato valor de la cadena ingresada al árbol
+  *@param indice renglón del archivo en el que se encuentra el dato
+  */
   @Override
   public void add(double dato, int indice){
     if(arbol.contains(dato)){
@@ -20,6 +37,10 @@ public class ABB implements Arbol{
     }
   }
 
+  /**
+  *Método de la interface que busca y devuelve datos
+  *@return arreglo con los índices en el archivo especificado
+  */
   @Override
   public Integer[] search(double dato){
     MyDatum datos = arbol.buscar(dato);

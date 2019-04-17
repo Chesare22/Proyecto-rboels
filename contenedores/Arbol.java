@@ -1,3 +1,8 @@
+/**
+*Esta interface sirve para ser implementada en las demás estructuras y poder
+*aplicar los métodos de inserción y búsqueda de acuerdo al árbol seleccionado
+*/
+
 package contenedores;
 
 public interface Arbol{
