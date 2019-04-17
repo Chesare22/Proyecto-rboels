@@ -1,3 +1,8 @@
+/**
+*Esta es la clase de la ventana en donde se especifican
+*los detalles para realizar la búsqueda de los datos
+*/
+
 package ventanas;
 
 import botones.buscar.*;
@@ -11,18 +16,23 @@ import javax.swing.JLabel;
 //Layouts
 import javax.swing.BoxLayout;
 
-//Dadores de forma
+//Para dar formato y personalizar
 import java.awt.Font;
+import java.awt.Color;
 
 
 public class JFrmBusqueda extends JFrame{
 
-  private GrupoTextoBuscar textosBusqueda = new GrupoTextoBuscar();
-  private JButton TextoBuscar = new JButton("Buscar");
-  private JButton botonCambiarArchivo = new JButton("Cambiar Archivo");
-  private JButton botonModificar = new JButton("Modificar");
+  private GrupoTextoBuscar textosBusqueda = new GrupoTextoBuscar();//Grupo de cajas para buscar
+  private JButton botonBuscar = new JButton("Buscar");//Botón para Buscar
+  private JButton botonCambiarArchivo = new JButton("Cambiar Archivo");//Botón para regresar y cambiar de archivo
+  private JButton botonModificar = new JButton("Modificar");//Botón para modificar los datos
 
+  /**
+  *Constructor de la clase que llama al método para iniciar los componentes
+  */
   public JFrmBusqueda(){
+    
     setSize(600, 250);
     setLocationRelativeTo(null);
     setTitle("Seleccionar Busqueda");
@@ -30,6 +40,9 @@ public class JFrmBusqueda extends JFrame{
     initComponents();
   }
 
+  /**
+  *Método que inicia los componentes
+  */
   public void initComponents(){
 
     //Declaracion de los botones de bsuqueda
@@ -57,7 +70,7 @@ public class JFrmBusqueda extends JFrame{
     panelBotonesBuscar.add(new JLabel("  Profesion:"));
     panelBotonesBuscar.add(bProfesion);
 
-    //Poner los paneles en el panel principal
+    //colocamos los paneles en el panel PRINCIPAL
     JPanel panel = new JPanel();
     panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
     panel.add(new JLabel(" "));
@@ -66,29 +79,40 @@ public class JFrmBusqueda extends JFrame{
     panel.add(panelBotonesBuscar);
 
     /**
-    Seccion para añadir los botones
+    *Sección para personalizar y añadir los botones
     */
-      JPanel panelBBuscar = new JPanel();
-      panelBBuscar.add(TextoBuscar);
-      panelBBuscar.add(new JLabel("      "));
-      panelBBuscar.add(botonCambiarArchivo);
-      panelBBuscar.add(new JLabel("      "));
-      panelBBuscar.add(botonModificar);
+    botonBuscar.setForeground(Color.WHITE);
+    botonBuscar.setBackground(new Color(53,153,0));
+    botonCambiarArchivo.setForeground(Color.WHITE);
+    botonCambiarArchivo.setBackground(new Color(204,0,0));
+    botonModificar.setForeground(Color.WHITE);
+    botonModificar.setBackground(new Color(0,51,153));
 
-      panel.add(panelBBuscar);
+    //Añadimos los botones a un Panel
+    JPanel panelBBuscar = new JPanel();
+    panelBBuscar.add(botonBuscar);
+    panelBBuscar.add(new JLabel("      "));
+    panelBBuscar.add(botonCambiarArchivo);
+    panelBBuscar.add(new JLabel("      "));
+    panelBBuscar.add(botonModificar);
 
+    //Añadimos el panel de botones al panel principal
+    panel.add(panelBBuscar);
 
-
+    //Añadimos el panel principal a la ventana
     add(panel);
   }
 
+  /**
+  *Método main para ejecutar la ventana
+  */
+  public static void main(String[] args) {
 
-public static void main(String[] args) {
-  JFrmBusqueda ventanaBusqueda = new JFrmBusqueda();
-  ventanaBusqueda.setVisible(true);
+    JFrmBusqueda ventanaBusqueda = new JFrmBusqueda();
 
-  ventanaBusqueda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-}
+    ventanaBusqueda.setVisible(true);
+    ventanaBusqueda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  }
 
 
 }

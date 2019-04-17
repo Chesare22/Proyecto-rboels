@@ -1,9 +1,14 @@
+/**
+*Esta clase es para objetos de tipo Egresado
+*/
+
 package representarDatos;
 
 public class Egresado{
-  private String nombre;
-  private String profesion;
-  private double promedio;
+
+  private String nombre;//Nombre completo del egresado
+  private String profesion;//Profesión del egresado
+  private double promedio;//Promedio del egresado
 
   public Egresado(){}
 

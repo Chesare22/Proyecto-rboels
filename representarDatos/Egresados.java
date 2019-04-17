@@ -1,3 +1,7 @@
+/**
+*Esta clase maneja un Vector de Egresados para manipular los datos con mayor facilidad
+*/
+
 package representarDatos;
 
 import java.util.Vector;

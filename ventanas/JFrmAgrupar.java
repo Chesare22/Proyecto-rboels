@@ -1,3 +1,8 @@
+/**
+*Clase de la ventana en donde se selecciona
+*cómo se van a agrupar los datos
+*/
+
 package ventanas;
 
 import botones.agrupar.*;
@@ -16,11 +21,15 @@ import javax.swing.BoxLayout;
 
 public class JFrmAgrupar extends JFrame{
 
-  private JLabel encabezado;
-  private GrupoBotonAgrupar botonesAgruparLogicos = new GrupoBotonAgrupar();
-  private JButton botonAceptar;
-  private JButton botonCancelar;
+  private JLabel encabezado;//label con el encabezado de la ventana
+  private GrupoBotonAgrupar botonesAgruparLogicos = new GrupoBotonAgrupar();//Grupo de los botones lógicos
+  private JButton botonAceptar;//Botón de aceptar
+  private JButton botonCancelar;//Botón de cancelar
 
+  /**
+  *Constructor de la clase que llama al método para iniciar los componentes
+  *@param busquedas opciones de búsqueda que tiene el usuario
+  */
   public JFrmAgrupar(String[] busquedas){
     setSize(600, 250);
     setLocationRelativeTo(null);
@@ -29,6 +38,10 @@ public class JFrmAgrupar extends JFrame{
     initComponents(busquedas);
   }
 
+  /**
+  *Método para iniciar los Componentes
+  *@param busquedas opciones de búsqueda que tiene el usuario
+  */
   public void initComponents(String[] busquedas){
     String e = "";
     for(int i = 0; i < busquedas.length-1;i++){
@@ -36,6 +49,7 @@ public class JFrmAgrupar extends JFrame{
     }
     encabezado = new JLabel(e.concat(busquedas[busquedas.length-1]));
 
+    //Panel para añadir el jLabel
     JPanel panel1 = new JPanel();
     panel1.add(new JLabel("Buscar Por:"));
 
@@ -72,9 +86,9 @@ public class JFrmAgrupar extends JFrame{
     panelBotonesAC.add(new JLabel("   "));
     panelBotonesAC.add(botonCancelar);
 
-    botonesAgruparLogicos.setSelected(0);
+    botonesAgruparLogicos.setSelected(0);//Se deja seleccionado un botón por default
 
-    //Panel principal
+    //Se agregan los paneles al panel principal
     JPanel panel = new JPanel();
     panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
     panel.add(new JLabel(" "));
@@ -83,10 +97,14 @@ public class JFrmAgrupar extends JFrame{
     panel.add(panelBotonesAgrupar);
     panel.add(panelBotonesAC);
 
-    add(panel);
+    add(panel);//Se agrega el panel prinicpal a la ventana
   }
 
+  /**
+  *Método main que inicia la ventana
+  */
   public static void main(String[] args) {
+
     String[] datos = new String[3];
     datos[0] = "Nombre";
     datos[1] = "Profesion";
