@@ -15,7 +15,7 @@ public class ArbolAVL {
   protected NodoAVL raiz;
 
     public ArbolAVL(){
-      raiz = null;
+      raiz = new NodoAVL();
     }
 
     public ArbolAVL(MyDatum o){

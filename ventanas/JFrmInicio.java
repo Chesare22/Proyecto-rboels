@@ -134,6 +134,8 @@ public class JFrmInicio extends JFrame{
       iniciarJTexts();
       meterDatos();
 
+
+
       dispose();
       JFrmBusqueda ventanaBusqueda = new JFrmBusqueda(tNombre, tPromedio, tProfesion);
       ventanaBusqueda.setVisible(true);
@@ -142,15 +144,9 @@ public class JFrmInicio extends JFrame{
     }
 
     private void iniciarJTexts(){
-      HashMap<String, Double> hashNom = new HashMap<String, Double>();
-      hashNom.put("Primer nombre", 0.0);
-      AVL treeNom = new AVL(0.0,1);
+      BotonArbol ar = botonesArbol.getSelection();
 
-      AVL treeProm = new AVL(68.0,1);
-
-      HashMap<String, Double> hashProf = new HashMap<String, Double>();
-      hashProf.put("Primera profesion", 0.0);
-      AVL treeProf = new AVL(0.0,1);
+      tNombre = ar.crearArbol(primerDato, primerIndice);
 
       tNombre = new TextoNombre(treeNom, hashNom);
       tPromedio = new TextoPromedio(treeProm);

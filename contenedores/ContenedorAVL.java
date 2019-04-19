@@ -9,7 +9,7 @@ import arboles.avl.ArbolAVL;
 import arboles.abb.ArbolABB;
 import arboles.MyDatum;
 
-public class AVL implements Arbol{
+public class ContenedorAVL implements ContenedorOrdenado{
 
   private ArbolAVL arbol = new ArbolAVL();//Variable de tipo Arbol AVL con la que se manipularán los datos
 
@@ -18,7 +18,7 @@ public class AVL implements Arbol{
   *@param dato Es el valor (en double) de la cadena que se encontró en el archivo
   *@param indice Es el renglón en el que se encuentra el dato en el archivo
   */
-  public AVL(double dato,int indice){
+  public ContenedorAVL(double dato,int indice){
     arbol = new ArbolAVL(new MyDatum(dato,indice));
   }
 

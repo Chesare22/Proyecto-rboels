@@ -15,7 +15,7 @@ public class NodoAVL extends NodoBin{
     protected int FE;
     protected NodoAVL padre;
 
-    public NodoAVL(){}
+    public NodoAVL(){super();}
 
     public NodoAVL(MyDatum o){
         super(o);

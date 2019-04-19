@@ -25,6 +25,10 @@ public class ArbolABB {
     this.raiz = raiz;
   }
 
+  public ArbolABB(){
+    raiz = new NodoBin();
+  }
+
   public void inOrden(){
     if(raiz!=null)
         raiz.inOrden();
@@ -41,7 +45,13 @@ public class ArbolABB {
   }
 
   public void insertar(MyDatum o){
-    insertarOrdenado(raiz,o);
+    if(raiz.getDato() == null){
+      raiz.setDato(o);
+    }else{
+      insertarOrdenado(raiz,o);
+
+    }
+
   }
 
   public void borrar(MyDatum o){

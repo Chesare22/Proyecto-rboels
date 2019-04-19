@@ -8,7 +8,7 @@ package contenedores;
 import arboles.abb.ArbolABB;
 import arboles.MyDatum;
 
-public class ABB implements Arbol{
+public class ContenedorABB implements ContenedorOrdenado{
 
   private ArbolABB arbol;//Variable de tipo Arbol ABB con la que se manipularán los datos
 
@@ -17,7 +17,7 @@ public class ABB implements Arbol{
   *@param dato Es el valor (en double) de la cadena que se encontró en el archivo
   *@param indice Es el renglón en el que se encuentra el dato en el archivo
   */
-  public ABB(double dato, int indice){
+  public ContenedorABB(double dato, int indice){
     arbol = new ArbolABB(dato, indice);//Se crea un árbol ABB conforme se van encontrando los datos
   }
 

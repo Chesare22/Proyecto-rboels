@@ -1,5 +1,9 @@
 package botones.arboles;
 
+import contenedores.Arbol;
+import contenedores.AVL;
+import java.util.HashMap;
+
 public class BotonArbolAvl extends BotonArbol{
   public BotonArbolAvl(){
     super("AVL");
@@ -7,7 +11,9 @@ public class BotonArbolAvl extends BotonArbol{
 
   //Falta ser implementado
   @Override
-  public void crearArbol(){
-
+  public Arbol crearArbol(String primerDato, int primerIndice){
+    HashMap<String, Double> hash = new HashMap<String, Double>();
+    hash.put(primerDato, 0.0);
+    return new AVL(0.0,primerIndice);
   }
 }

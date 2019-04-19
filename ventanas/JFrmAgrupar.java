@@ -15,6 +15,8 @@ import javax.swing.JLabel;
 
 //personalización de botonesAgruparLogicos
 import java.awt.Color;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
 
 //Layouts
 import javax.swing.BoxLayout;
@@ -114,5 +116,29 @@ public class JFrmAgrupar extends JFrame{
     ventanaBusqueda.setVisible(true);
 
     ventanaBusqueda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  }
+
+  private class Transicion implements MouseListener{
+
+    @Override
+    public void mouseClicked(MouseEvent e){
+      /*JFrmResultado frameInicio = new JFrmResultado();
+
+      frameInicio.setVisible(true);
+      frameInicio.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);*/
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e){}
+
+    @Override
+    public void mouseExited(MouseEvent e){}
+
+    @Override
+    public void mousePressed(MouseEvent e){}
+
+    @Override
+    public void mouseReleased(MouseEvent e){}
+
   }
 }
