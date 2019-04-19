@@ -21,6 +21,13 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Color;
 
+//Para hacer la transición entre ventanas
+import java.util.HashMap;
+import contenedores.AVL;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+import botones.buscar.*;
+
 public class JFrmInicio extends JFrame{
 
   protected JTextField cajaTexto;//Caja de texto para ingresar el nombre del archivo
@@ -53,7 +60,7 @@ public class JFrmInicio extends JFrame{
     botonAceptar = new JButton("Aceptar");
     botonCancelar = new JButton("Cancelar");
 
-    botonAceptar.addMouseListener();;
+    botonAceptar.addMouseListener(new Transicion());
 
     //personalización de los botones
     botonAceptar.setForeground(Color.WHITE);
@@ -111,6 +118,10 @@ public class JFrmInicio extends JFrame{
 
   private class Transicion implements MouseListener{
 
+    private TextoNombre tNombre;
+    private TextoPromedio tPromedio;
+    private TextoProfesion tProfesion;
+
     @Override
     public void mouseClicked(MouseEvent e){
       /*
@@ -120,28 +131,62 @@ public class JFrmInicio extends JFrame{
       */
 
       //Para propósitos de prueba: Vamos a llenar los árboles con valores predefinidos.
+      iniciarJTexts();
+      meterDatos();
 
+      dispose();
+      JFrmBusqueda ventanaBusqueda = new JFrmBusqueda(tNombre, tPromedio, tProfesion);
+      ventanaBusqueda.setVisible(true);
+      ventanaBusqueda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
+
+    private void iniciarJTexts(){
+      HashMap<String, Double> hashNom = new HashMap<String, Double>();
+      hashNom.put("Primer nombre", 0.0);
+      AVL treeNom = new AVL(0.0,1);
+
+      AVL treeProm = new AVL(68.0,1);
+
+      HashMap<String, Double> hashProf = new HashMap<String, Double>();
+      hashProf.put("Primera profesion", 0.0);
+      AVL treeProf = new AVL(0.0,1);
+
+      tNombre = new TextoNombre(treeNom, hashNom);
+      tPromedio = new TextoPromedio(treeProm);
+      tProfesion = new TextoProfesion(treeProf, hashProf);
+    }
+
+    private void meterDatos(){
+      meterDatosPrueba(tNombre);
+      meterDatosPrueba(tProfesion);
+      tPromedio.addDatum("9.2",10);
+      tPromedio.addDatum("0.01",5);
+      tPromedio.addDatum("2.9",6);
+      tPromedio.addDatum("9.9",9);
+      tPromedio.addDatum("10.01",7);
+
+    }
+
+    private void meterDatosPrueba(TextoBuscar text){
+      text.addDatum("hola",10);
+      text.addDatum("popup",5);
+      text.addDatum("sun",6);
+      text.addDatum("summer",9);
+      text.addDatum("popup",7);
     }
 
     @Override
-    public void mouseEntered(MouseEvent e){
-
-    }
+    public void mouseEntered(MouseEvent e){}
 
     @Override
-    public void mouseExited(MouseEvent e){
-
-    }
+    public void mouseExited(MouseEvent e){}
 
     @Override
-    public void mousePressed(MouseEvent e){
-
-    }
+    public void mousePressed(MouseEvent e){}
 
     @Override
-    public void mouseReleased(MouseEvent e){
-
-    }
+    public void mouseReleased(MouseEvent e){}
 
   }
 

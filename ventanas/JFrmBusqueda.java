@@ -27,6 +27,9 @@ import java.awt.event.ActionEvent;
 
 import contenedores.AVL;
 
+//Para las transiciones
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
 
 
 public class JFrmBusqueda extends JFrame{
@@ -53,14 +56,13 @@ public class JFrmBusqueda extends JFrame{
   */
   public void initComponents(TextoNombre tNombre, TextoPromedio tPromedio, TextoProfesion tProfesion){
 
+    botonCambiarArchivo.addMouseListener(new Transicion());
+
     //Declaracion de los botones de bsuqueda
     tNombre.addActionListener(new Probar());
     tProfesion.addActionListener(new Probar());
     tPromedio.addActionListener(new Probar());
 
-    meterDatosPrueba(tNombre);
-    meterDatosPrueba(tPromedio);
-    meterDatosPrueba(tProfesion);
 
     //Agrupar los botones
     textosBusqueda.add(tNombre);
@@ -140,24 +142,7 @@ public class JFrmBusqueda extends JFrame{
     ventanaBusqueda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   }
 
-  private void meterDatosPrueba(TextoBuscar text){
-    //text.createTree(new AVL(0.22,2));
-    text.addDatum("hola",10);
-    text.addDatum("hola",10);
-    text.addDatum("hola",10);
-    text.addDatum("hola",10);
-    text.addDatum("hola",10);
-    text.addDatum("hola",10);
-    text.addDatum("hola",10);
-    text.addDatum("hola",10);
-    text.addDatum("hola",10);
-    text.addDatum("hola",10);
-    text.addDatum("hola",10);
-    text.addDatum("popup",5);
-    text.addDatum("sun",6);
-    text.addDatum("summer",9);
-    text.addDatum("popup",7);
-  }
+
 
   private void imprimirDatos(TextoBuscar text){
     for(Integer i : text.buscar()){
@@ -172,6 +157,31 @@ public class JFrmBusqueda extends JFrame{
       TextoBuscar text = (TextoBuscar) e.getSource();
       imprimirDatos(text);
     }
+  }
+
+  private class Transicion implements MouseListener{
+
+    @Override
+    public void mouseClicked(MouseEvent e){
+      JFrmInicio frameInicio = new JFrmInicio();
+
+      dispose();
+      frameInicio.setVisible(true);
+      frameInicio.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e){}
+
+    @Override
+    public void mouseExited(MouseEvent e){}
+
+    @Override
+    public void mousePressed(MouseEvent e){}
+
+    @Override
+    public void mouseReleased(MouseEvent e){}
+
   }
 
 }
