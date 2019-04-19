@@ -6,6 +6,7 @@
 package ventanas;
 
 import botones.buscar.*;
+import java.util.HashMap;
 
 //Componentes de swing
 import javax.swing.JButton;
@@ -19,6 +20,13 @@ import javax.swing.BoxLayout;
 //Para dar formato y personalizar
 import java.awt.Font;
 import java.awt.Color;
+import java.util.Random;
+//actionPerformed
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+import contenedores.AVL;
+
 
 
 public class JFrmBusqueda extends JFrame{
@@ -31,29 +39,33 @@ public class JFrmBusqueda extends JFrame{
   /**
   *Constructor de la clase que llama al método para iniciar los componentes
   */
-  public JFrmBusqueda(){
-    
+  public JFrmBusqueda(TextoNombre tNombre, TextoPromedio tPromedio, TextoProfesion tProfesion){
+
     setSize(600, 250);
     setLocationRelativeTo(null);
     setTitle("Seleccionar Busqueda");
 
-    initComponents();
+    initComponents(tNombre, tPromedio, tProfesion);
   }
 
   /**
   *Método que inicia los componentes
   */
-  public void initComponents(){
+  public void initComponents(TextoNombre tNombre, TextoPromedio tPromedio, TextoProfesion tProfesion){
 
     //Declaracion de los botones de bsuqueda
-    TextoNombre bNombre = new TextoNombre();
-    TextoPromedio bPromedio = new TextoPromedio();
-    TextoProfesion bProfesion = new TextoProfesion();
+    tNombre.addActionListener(new Probar());
+    tProfesion.addActionListener(new Probar());
+    tPromedio.addActionListener(new Probar());
+
+    meterDatosPrueba(tNombre);
+    meterDatosPrueba(tPromedio);
+    meterDatosPrueba(tProfesion);
 
     //Agrupar los botones
-    textosBusqueda.add(bNombre);
-    textosBusqueda.add(bPromedio);
-    textosBusqueda.add(bProfesion);
+    textosBusqueda.add(tNombre);
+    textosBusqueda.add(tPromedio);
+    textosBusqueda.add(tProfesion);
 
     //JPanel de la etiqueta que dice "Buscar: "
     JPanel etiquetaBuscar = new JPanel();
@@ -64,11 +76,11 @@ public class JFrmBusqueda extends JFrame{
     //Poner los botones en un JPanel
     JPanel panelBotonesBuscar = new JPanel();
     panelBotonesBuscar.add(new JLabel("Nombre:"));
-    panelBotonesBuscar.add(bNombre);
+    panelBotonesBuscar.add(tNombre);
     panelBotonesBuscar.add(new JLabel("  Promedio:"));
-    panelBotonesBuscar.add(bPromedio);
+    panelBotonesBuscar.add(tPromedio);
     panelBotonesBuscar.add(new JLabel("  Profesion:"));
-    panelBotonesBuscar.add(bProfesion);
+    panelBotonesBuscar.add(tProfesion);
 
     //colocamos los paneles en el panel PRINCIPAL
     JPanel panel = new JPanel();
@@ -108,11 +120,58 @@ public class JFrmBusqueda extends JFrame{
   */
   public static void main(String[] args) {
 
-    JFrmBusqueda ventanaBusqueda = new JFrmBusqueda();
+    HashMap<String, Double> hashNom = new HashMap<String, Double>();
+    hashNom.put("Primer nombre", 0.0);
+    AVL treeNom = new AVL(0.0,1);
+
+    AVL treeProm = new AVL(68.0,1);
+
+    HashMap<String, Double> hashProf = new HashMap<String, Double>();
+    hashProf.put("Primera profesion", 0.0);
+    AVL treeProf = new AVL(0.0,1);
+
+    TextoNombre tNombre = new TextoNombre(treeNom, hashNom);
+    TextoPromedio tPromedio = new TextoPromedio(treeProm);
+    TextoProfesion tProfesion = new TextoProfesion(treeProf, hashProf);
+
+    JFrmBusqueda ventanaBusqueda = new JFrmBusqueda(tNombre, tPromedio, tProfesion);
 
     ventanaBusqueda.setVisible(true);
     ventanaBusqueda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
   }
 
+  private void meterDatosPrueba(TextoBuscar text){
+    //text.createTree(new AVL(0.22,2));
+    text.addDatum("hola",10);
+    text.addDatum("hola",10);
+    text.addDatum("hola",10);
+    text.addDatum("hola",10);
+    text.addDatum("hola",10);
+    text.addDatum("hola",10);
+    text.addDatum("hola",10);
+    text.addDatum("hola",10);
+    text.addDatum("hola",10);
+    text.addDatum("hola",10);
+    text.addDatum("hola",10);
+    text.addDatum("popup",5);
+    text.addDatum("sun",6);
+    text.addDatum("summer",9);
+    text.addDatum("popup",7);
+  }
+
+  private void imprimirDatos(TextoBuscar text){
+    for(Integer i : text.buscar()){
+      System.out.print(i + " || ");
+    }
+    System.out.println("");
+  }
+
+  private class Probar implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent e){
+      TextoBuscar text = (TextoBuscar) e.getSource();
+      imprimirDatos(text);
+    }
+  }
 
 }

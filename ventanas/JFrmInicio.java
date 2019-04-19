@@ -53,6 +53,8 @@ public class JFrmInicio extends JFrame{
     botonAceptar = new JButton("Aceptar");
     botonCancelar = new JButton("Cancelar");
 
+    botonAceptar.addMouseListener();;
+
     //personalización de los botones
     botonAceptar.setForeground(Color.WHITE);
     botonAceptar.setBackground(new Color(53,153,0));
@@ -105,6 +107,42 @@ public class JFrmInicio extends JFrame{
     panel.add(botones);
 
     add(panel);
+  }
+
+  private class Transicion implements MouseListener{
+
+    @Override
+    public void mouseClicked(MouseEvent e){
+      /*
+      Lo que debería hacer es leer el archivo, y si tiene el formato válido, crea
+      las instancias de los botones para la ventana principal.
+      Posteriormente se llenan esas instancias con datos del archivo.
+      */
+
+      //Para propósitos de prueba: Vamos a llenar los árboles con valores predefinidos.
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e){
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e){
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e){
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e){
+
+    }
+
   }
 
   /**

@@ -1,12 +1,15 @@
 package botones.buscar;
 
+import java.util.HashMap;
+import contenedores.Arbol;
+
 public class TextoProfesion extends TextoBuscar{
-  public TextoProfesion(){
-    super("Profesion");
+  public TextoProfesion(Arbol tree, HashMap<String, Double> hash){
+    super("Profesion",tree, hash);
   }
 
   @Override
-  public int[] buscar(){
-    return new int[0];
+  public Integer[] buscar(){
+    return tree.search(hash.get(this.getText()));
   }
 }
