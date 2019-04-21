@@ -40,7 +40,10 @@ public class ArbolAVL implements Arbol{
 
   @Override
   public void insertar(MyDatum o){
-    insertarOrdenado(raiz,o);
+    if(raiz.getDato() == null){
+      raiz.setDato(o);
+    }else
+      insertarOrdenado(raiz,o);
   }
 
   @Override
