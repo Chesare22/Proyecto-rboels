@@ -1,23 +1,36 @@
 package contenedores;
 
+import arboles.Arbol;
+import arboles.MyDatum;
+import java.util.HashMap;
+
 public class ContenedorSinOrdenar{
-  private ContenedorOrdenado contiene;
-  private HashMap<String,Double> hash;
+  private Arbol arbol;
+  private HashMap<String,Double> hash = new HashMap<String,Double>();
   private double key = 0;
 
-  public ContenedorSinOrdenar(ContenedorOrdenado contiene, HashMap<String,Double> hash){
-    this.contiene = contiene;
-    this.hash = hash;
+  public ContenedorSinOrdenar(Arbol arbol){
+    this.arbol = arbol;
   }
 
   public void add(String dato, int indice){
-    key+=0.1;
-    hash.put(dato, key);
-    contiene.add(key, indice);
+    if(hash.containsKey(dato)){
+      MyDatum datos = arbol.buscar(hash.get(dato));
+      datos.add(indice);
+    }else{
+      key+=0.1;
+      hash.put(dato, key);
+      arbol.insertar(new MyDatum(key, indice));
+    }
   }
 
   public Integer[] search(String dato){
-    return contiene.search(hash.get(dato));
+    MyDatum datos = arbol.buscar(hash.get(dato));
+    if(datos == null){
+      return new Integer[0];
+    }else{
+      return datos.getIndices();
+    }
   }
 
 }

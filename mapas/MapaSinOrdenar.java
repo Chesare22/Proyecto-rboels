@@ -1,7 +1,10 @@
 package mapas;
 
 import contenedores.ContenedorSinOrdenar;
+import arboles.Arbol;
 
-public abstract class MapaSinOrdenar implements Mapa{
-  protected ContenedorSinOrdenar contenedor;
+public class MapaSinOrdenar extends ContenedorSinOrdenar implements Mapa{
+  public MapaSinOrdenar(Arbol arbol){
+    super(arbol);
+  }
 }

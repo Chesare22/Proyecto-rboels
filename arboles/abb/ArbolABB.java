@@ -5,12 +5,13 @@
 package arboles.abb;
 
 import arboles.MyDatum;
+import arboles.Arbol;
 
 /**
  *
  * @author jorge.reyes
  */
-public class ArbolABB {
+public class ArbolABB implements Arbol{
   protected NodoBin raiz;
 
   public ArbolABB(double dato, int indice){
@@ -44,6 +45,7 @@ public class ArbolABB {
         raiz.preOrden();
   }
 
+  @Override
   public void insertar(MyDatum o){
     if(raiz.getDato() == null){
       raiz.setDato(o);
@@ -114,6 +116,7 @@ public class ArbolABB {
      }
   }
 
+  @Override
   public boolean contains(double dato){
     if(buscar(dato) == null){
       return false;
@@ -122,7 +125,11 @@ public class ArbolABB {
     }
   }
 
+  @Override
   public MyDatum buscar(double o){
+    if(raiz.getDato() == null){
+      return null;
+    }
     return buscar(raiz,o);
   }
 

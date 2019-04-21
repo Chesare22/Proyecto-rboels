@@ -5,13 +5,14 @@
 package arboles.avl;
 
 import arboles.MyDatum;
+import arboles.Arbol;
 import arboles.abb.ArbolABB;
 
 /**
  *
  * @author jorge.reyes
  */
-public class ArbolAVL {
+public class ArbolAVL implements Arbol{
   protected NodoAVL raiz;
 
     public ArbolAVL(){
@@ -37,8 +38,19 @@ public class ArbolAVL {
            raiz.posOrden();
     }
 
-    public void insertar(MyDatum o){
+  @Override
+  public void insertar(MyDatum o){
     insertarOrdenado(raiz,o);
+  }
+
+  @Override
+  public boolean contains(double dato){
+    return toABB().contains(dato);
+  }
+
+  @Override
+  public MyDatum buscar(double dato){
+    return toABB().buscar(dato);
   }
 
   public ArbolABB toABB(){
