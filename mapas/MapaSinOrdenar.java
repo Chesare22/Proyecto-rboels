@@ -34,5 +34,4 @@ public class MapaSinOrdenar implements Mapa{
       return datos.getIndices();
     }
   }
-
 }
