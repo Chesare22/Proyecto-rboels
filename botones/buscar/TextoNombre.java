@@ -1,7 +1,7 @@
 package botones.buscar;
 
 import java.util.HashMap;
-import contenedores.Arbol;
+import arboles.Arbol;
 
 public class TextoNombre extends TextoBuscar{
   public TextoNombre(Arbol tree, HashMap<String, Double> hash){

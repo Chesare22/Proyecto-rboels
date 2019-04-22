@@ -1,8 +1,8 @@
 package botones.buscar;
 
 import java.util.HashMap;
-import contenedores.Arbol;
 import java.lang.NumberFormatException;
+import arboles.Arbol;
 
 public class TextoPromedio extends TextoBuscar{
   public TextoPromedio(Arbol tree){

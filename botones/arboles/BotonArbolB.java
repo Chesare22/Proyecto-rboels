@@ -1,8 +1,7 @@
 package botones.arboles;
 
-import contenedores.Arbol;
-import contenedores.AVL;
 import java.util.HashMap;
+import arboles.Arbol;
 
 public class BotonArbolB extends BotonArbol{
   public BotonArbolB(){

@@ -1,7 +1,7 @@
 package botones.arboles;
 
 import javax.swing.JRadioButton;
-import contenedores.Arbol;
+import arboles.Arbol;
 
 public abstract class BotonArbol extends JRadioButton{
   public BotonArbol(String text){

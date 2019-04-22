@@ -1,7 +1,7 @@
 package botones.buscar;
 
 import javax.swing.JTextField;
-import contenedores.Arbol;
+import arboles.Arbol;
 import java.util.HashMap;
 
 public abstract class TextoBuscar extends JTextField{
