@@ -25,7 +25,7 @@ import java.util.Random;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import contenedores.AVL;
+//import arboles.AVL;
 
 //Para las transiciones
 import java.awt.event.MouseListener;
@@ -124,6 +124,11 @@ public class JFrmBusqueda extends JFrame{
 
     HashMap<String, Double> hashNom = new HashMap<String, Double>();
     hashNom.put("Primer nombre", 0.0);
+
+    Mapa mapNom = new MapaSinOrdenar(new ArbolABB());
+
+    
+
     AVL treeNom = new AVL(0.0,1);
 
     AVL treeProm = new AVL(68.0,1);

@@ -23,7 +23,6 @@ import java.awt.Color;
 
 //Para hacer la transición entre ventanas
 import java.util.HashMap;
-import contenedores.AVL;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import botones.buscar.*;
