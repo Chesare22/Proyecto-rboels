@@ -1,9 +1,10 @@
-package botones.arboles;
+package botones.barboles;
 
 import javax.swing.JRadioButton;
 import arboles.Arbol;
 
 public abstract class BotonArbol extends JRadioButton{
+
   public BotonArbol(String text){
     super(text);
   }
