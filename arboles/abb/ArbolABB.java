@@ -118,11 +118,7 @@ public class ArbolABB implements Arbol{
 
   @Override
   public boolean contains(double dato){
-    if(buscar(dato) == null){
-      return false;
-    }else{
-      return true;
-    }
+      return buscar(dato) != null;
   }
 
   @Override

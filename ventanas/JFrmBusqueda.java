@@ -5,6 +5,7 @@
 
 package ventanas;
 
+import arboles.avl.ArbolAVL;
 import botones.buscar.*;
 import java.util.HashMap;
 
@@ -30,31 +31,34 @@ import java.awt.event.ActionEvent;
 //Para las transiciones
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
+import mapas.Mapa;
+import mapas.MapaOrdenado;
+import mapas.MapaSinOrdenar;
 
 
 public class JFrmBusqueda extends JFrame{
 
-  private GrupoTextoBuscar textosBusqueda = new GrupoTextoBuscar();//Grupo de cajas para buscar
-  private JButton botonBuscar = new JButton("Buscar");//Botón para Buscar
-  private JButton botonCambiarArchivo = new JButton("Cambiar Archivo");//Botón para regresar y cambiar de archivo
-  private JButton botonModificar = new JButton("Modificar");//Botón para modificar los datos
+  private final GrupoTextoBuscar textosBusqueda = new GrupoTextoBuscar();//Grupo de cajas para buscar
+  private final JButton botonBuscar = new JButton("Buscar");//Botón para Buscar
+  private final JButton botonCambiarArchivo = new JButton("Cambiar Archivo");//Botón para regresar y cambiar de archivo
+  private final JButton botonModificar = new JButton("Modificar");//Botón para modificar los datos
 
   /**
   *Constructor de la clase que llama al método para iniciar los componentes
   */
-  public JFrmBusqueda(TextoNombre tNombre, TextoPromedio tPromedio, TextoProfesion tProfesion){
+  public JFrmBusqueda(Mapa tNombre, Mapa tPromedio, Mapa tProfesion){
 
     setSize(600, 250);
     setLocationRelativeTo(null);
     setTitle("Seleccionar Busqueda");
 
-    initComponents(tNombre, tPromedio, tProfesion);
+    initComponents(new TextoBuscar(tNombre), new TextoBuscar(tPromedio), new TextoBuscar(tProfesion));
   }
 
   /**
   *Método que inicia los componentes
   */
-  public void initComponents(TextoNombre tNombre, TextoPromedio tPromedio, TextoProfesion tProfesion){
+  public void initComponents(TextoBuscar tNombre, TextoBuscar tPromedio, TextoBuscar tProfesion){
 
     botonCambiarArchivo.addMouseListener(new Transicion());
 
@@ -119,27 +123,11 @@ public class JFrmBusqueda extends JFrame{
 
   /**
   *Método main para ejecutar la ventana
+  * @param args
   */
   public static void main(String[] args) {
-/*
-    HashMap<String, Double> hashNom = new HashMap<String, Double>();
-    hashNom.put("Primer nombre", 0.0);
-
-    AVL treeNom = new AVL(0.0,1);
-
-    AVL treeProm = new AVL(68.0,1);
-
-
-
-    HashMap<String, Double> hashProf = new HashMap<String, Double>();
-    hashProf.put("Primera profesion", 0.0);
-    AVL treeProf = new AVL(0.0,1);
-
-    TextoNombre tNombre = new TextoNombre(treeNom, hashNom);
-    TextoPromedio tPromedio = new TextoPromedio(treeProm);
-    TextoProfesion tProfesion = new TextoProfesion(treeProf, hashProf);
-*/
-    JFrmBusqueda ventanaBusqueda = new JFrmBusqueda(tNombre, tPromedio, tProfesion);
+  
+    JFrmBusqueda ventanaBusqueda = new JFrmBusqueda(new MapaSinOrdenar(new ArbolAVL()), new MapaOrdenado(new ArbolAVL()), new MapaSinOrdenar(new ArbolAVL()));
 
     ventanaBusqueda.setVisible(true);
     ventanaBusqueda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

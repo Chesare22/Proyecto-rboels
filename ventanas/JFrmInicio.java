@@ -17,15 +17,14 @@ import botones.arboles.*;
 import javax.swing.BoxLayout;
 
 //Para darle formato y personalizar
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Color;
 
 //Para hacer la transición entre ventanas
-import java.util.HashMap;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import botones.buscar.*;
+import mapas.Mapa;
 
 public class JFrmInicio extends JFrame{
 
@@ -117,9 +116,9 @@ public class JFrmInicio extends JFrame{
 
   private class Transicion implements MouseListener{
 
-    private TextoNombre tNombre;
-    private TextoPromedio tPromedio;
-    private TextoProfesion tProfesion;
+    private Mapa tNombre;
+    private Mapa tPromedio;
+    private Mapa tProfesion;
 
     @Override
     public void mouseClicked(MouseEvent e){
@@ -145,7 +144,7 @@ public class JFrmInicio extends JFrame{
     private void iniciarJTexts(){
       BotonArbol ar = botonesArbol.getSelection();
 
-      tNombre = ar.crearArbol(primerDato, primerIndice);
+      tNombre = ar.crearArbol();
 
       tNombre = new TextoNombre(treeNom, hashNom);
       tPromedio = new TextoPromedio(treeProm);

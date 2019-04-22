@@ -1,6 +1,5 @@
-package botones.barboles;
+package botones.arboles;
 
-import java.util.HashMap;
 import arboles.Arbol;
 import arboles.avl.ArbolAVL;
 
@@ -11,9 +10,7 @@ public class BotonArbolB extends BotonArbol{
 
   //Falta ser implementado
   @Override
-  public Arbol crearArbol(String primerDato, int primerIndice){
-    HashMap<String, Double> hash = new HashMap<String, Double>();
-    hash.put(primerDato, 0.0);
+  public Arbol crearArbol(){
     return new ArbolAVL();
   }
 }

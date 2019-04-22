@@ -1,9 +1,11 @@
-package botones.agrupar;
+package botones.arboles;
 
 import javax.swing.JRadioButton;
+import arboles.Arbol;
 
-public abstract class BotonAgrupar extends JRadioButton{
-  public BotonAgrupar(String text){
+public abstract class BotonArbol extends JRadioButton{
+
+  public BotonArbol(String text){
     super(text);
   }
   /**
@@ -11,5 +13,5 @@ public abstract class BotonAgrupar extends JRadioButton{
   *@param datos Datos a agrupar.
   *@return Indices de los egresados.
   */
-  public abstract int[] agrupar(int[][] datos);
+  public abstract Arbol crearArbol();
 }
