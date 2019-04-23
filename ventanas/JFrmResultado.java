@@ -12,7 +12,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 
-import representarDatos.Egresado;
+import utilidades.Egresado;
 
 //Layouts
 import javax.swing.BoxLayout;

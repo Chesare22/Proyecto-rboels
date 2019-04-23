@@ -30,7 +30,7 @@ import javax.swing.JOptionPane;
 import mapas.Mapa;
 import mapas.MapaOrdenado;
 import mapas.MapaSinOrdenar;
-import representarDatos.Egresado;
+import utilidades.Egresado;
 
 public class JFrmInicio extends JFrame{
 

@@ -27,11 +27,15 @@ public class MapaSinOrdenar implements Mapa{
 
   @Override
   public Integer[] search(String dato){
-    MyDatum datos = arbol.buscar(hash.get(dato));
-    if(datos == null){
-      return new Integer[0];
+    if(hash.containsKey(dato)){
+        MyDatum datos = arbol.buscar(hash.get(dato));
+        if(datos == null){
+          return new Integer[0];
+        }else{
+          return datos.getIndices();
+        }
     }else{
-      return datos.getIndices();
+        return new Integer[0];
     }
   }
 }

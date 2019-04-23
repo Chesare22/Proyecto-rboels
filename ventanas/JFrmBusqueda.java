@@ -32,7 +32,7 @@ import java.awt.event.MouseEvent;
 import mapas.Mapa;
 import mapas.MapaOrdenado;
 import mapas.MapaSinOrdenar;
-import representarDatos.Egresado;
+import utilidades.Egresado;
 
 
 public class JFrmBusqueda extends JFrame{
@@ -198,8 +198,13 @@ public class JFrmBusqueda extends JFrame{
               ventanaRes.setVisible(true);
               ventanaRes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
           }else{
+              String[] hue = {
+                  "Jijitl", "Probanding"
+              };
               //Los mandamos a agrupar
-              
+              JFrmAgrupar ventanaRes = new JFrmAgrupar(hue,indices);
+              ventanaRes.setVisible(true);
+              ventanaRes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
           }
       }
     }

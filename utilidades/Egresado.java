@@ -2,7 +2,7 @@
 *Esta clase es para objetos de tipo Egresado
 */
 
-package representarDatos;
+package utilidades;
 
 public class Egresado{
 

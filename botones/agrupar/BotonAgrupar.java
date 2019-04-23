@@ -11,5 +11,5 @@ public abstract class BotonAgrupar extends JRadioButton{
   *@param datos Datos a agrupar.
   *@return Indices de los egresados.
   */
-  public abstract int[] agrupar(int[][] datos);
+  public abstract Integer[] agrupar(Integer[][] datos);
 }

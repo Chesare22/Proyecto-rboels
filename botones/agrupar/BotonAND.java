@@ -1,5 +1,7 @@
 package botones.agrupar;
 
+import utilidades.Agrupa;
+
 public class BotonAND extends BotonAgrupar{
   public BotonAND(){
     super("AND");
@@ -7,7 +9,7 @@ public class BotonAND extends BotonAgrupar{
 
   //Falta ser implementado
   @Override
-  public int[] agrupar(int[][] datos){
-    return new int[0];
+  public Integer[] agrupar(Integer[][] datos){
+    return Agrupa.and(datos);
   }
 }

@@ -20,36 +20,40 @@ import java.awt.event.MouseEvent;
 
 //Layouts
 import javax.swing.BoxLayout;
+import utilidades.Egresado;
 
 public class JFrmAgrupar extends JFrame{
 
-  private JLabel encabezado;//label con el encabezado de la ventana
+  private String[] busquedas;//label con el encabezado de la ventana
   private GrupoBotonAgrupar botonesAgruparLogicos = new GrupoBotonAgrupar();//Grupo de los botones lógicos
   private JButton botonAceptar;//Botón de aceptar
   private JButton botonCancelar;//Botón de cancelar
+  private final Integer[][] indices;
 
   /**
   *Constructor de la clase que llama al método para iniciar los componentes
   *@param busquedas opciones de búsqueda que tiene el usuario
   */
-  public JFrmAgrupar(String[] busquedas){
+  public JFrmAgrupar(String[] busquedas, Integer[][] indices){
     setSize(600, 250);
     setLocationRelativeTo(null);
     setTitle("Seleccionar Operador L\u00f3gico");
+    this.indices = indices;
+    this.busquedas = busquedas;
 
-    initComponents(busquedas);
+    initComponents();
   }
 
   /**
   *Método para iniciar los Componentes
   *@param busquedas opciones de búsqueda que tiene el usuario
   */
-  public void initComponents(String[] busquedas){
+  public void initComponents(){
     String e = "";
     for(int i = 0; i < busquedas.length-1;i++){
       e = e.concat(busquedas[i]).concat(" __ ");
     }
-    encabezado = new JLabel(e.concat(busquedas[busquedas.length-1]));
+    JLabel encabezado = new JLabel(e.concat(busquedas[busquedas.length-1]));
 
     //Panel para añadir el jLabel
     JPanel panel1 = new JPanel();
@@ -70,8 +74,10 @@ public class JFrmAgrupar extends JFrame{
     //personalización de los botones
     botonAceptar.setForeground(Color.WHITE);
     botonAceptar.setBackground(new Color(51, 153, 0));
+    botonAceptar.addMouseListener(new Transicion());
     botonCancelar.setForeground(Color.WHITE);
     botonCancelar.setBackground(new Color(204,0,0));
+    botonCancelar.addMouseListener(new Cancelar());
 
     //Agrupo los botones
     botonesAgruparLogicos.add(bOR);
@@ -106,7 +112,7 @@ public class JFrmAgrupar extends JFrame{
   *Método main que inicia la ventana
   */
   public static void main(String[] args) {
-
+/*
     String[] datos = new String[3];
     datos[0] = "Nombre";
     datos[1] = "Profesion";
@@ -115,17 +121,47 @@ public class JFrmAgrupar extends JFrame{
     JFrmAgrupar ventanaBusqueda = new JFrmAgrupar(datos);
     ventanaBusqueda.setVisible(true);
 
-    ventanaBusqueda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    ventanaBusqueda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
   }
 
   private class Transicion implements MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e){
-      /*JFrmResultado frameInicio = new JFrmResultado();
+      Integer[] indicesResultado = botonesAgruparLogicos.getSelection().agrupar(indices);
+      Egresado[] egresados = JFrmInicio.obtenerEgresados(indicesResultado);
+      String resultado = "";
+      
+      for(int i = 0;i<busquedas.length-1;i++){
+          resultado = resultado.concat(busquedas[i]).concat(" y ");
+      }
+      resultado = resultado.concat(busquedas[busquedas.length-1]);
+      
+      JFrmResultado ventanaRes = new JFrmResultado(resultado, egresados);
+      ventanaRes.setVisible(true);
+      ventanaRes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+      dispose();
+    }
 
-      frameInicio.setVisible(true);
-      frameInicio.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);*/
+    @Override
+    public void mouseEntered(MouseEvent e){}
+
+    @Override
+    public void mouseExited(MouseEvent e){}
+
+    @Override
+    public void mousePressed(MouseEvent e){}
+
+    @Override
+    public void mouseReleased(MouseEvent e){}
+
+  }
+  
+  private class Cancelar implements MouseListener{
+
+    @Override
+    public void mouseClicked(MouseEvent e){
+      dispose();
     }
 
     @Override
