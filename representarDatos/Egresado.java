@@ -12,7 +12,7 @@ public class Egresado{
 
   public Egresado(){}
 
-  public Egresado(String nombre, String profesion, double promedio){
+  public Egresado(String nombre, double promedio, String profesion){
     this.nombre = nombre;
     this.profesion = profesion;
     this.promedio = promedio;

@@ -60,7 +60,7 @@ public class JFrmResultado extends JFrame{
 
     //Panel del encabezado
     JPanel panelEncabezado = new JPanel();
-    panelEncabezado.add(new JLabel("Resultado: ".concat(encabezado)));
+    panelEncabezado.add(new JLabel("Lista de ".concat(encabezado)));
 
     //ScrollPane de la tabla
     JScrollPane scrollPane = new JScrollPane(table);
@@ -95,7 +95,7 @@ public class JFrmResultado extends JFrame{
   *Método main
   */
   public static void main(String[] args) {
-
+/*
     Egresado[] e = new Egresado[15];
     e[0] = new Egresado("Juan","Contador",6.9);
     e[1] = new Egresado("Emilio","Licenciado",6.8);
@@ -117,7 +117,7 @@ public class JFrmResultado extends JFrame{
     JFrmResultado frameTabla = new JFrmResultado("Egresados",e);
 
     frameTabla.setVisible(true);
-    frameTabla.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    frameTabla.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);*/
   }
   
 }

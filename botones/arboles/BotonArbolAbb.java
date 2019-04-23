@@ -5,7 +5,7 @@ import arboles.abb.ArbolABB;
 
 public class BotonArbolAbb extends BotonArbol{
   public BotonArbolAbb(){
-    super("B");
+    super("ABB");
   }
 
   //Falta ser implementado

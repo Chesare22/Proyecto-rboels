@@ -7,7 +7,6 @@ package ventanas;
 
 import arboles.avl.ArbolAVL;
 import botones.buscar.*;
-import java.util.HashMap;
 
 //Componentes de swing
 import javax.swing.JButton;
@@ -21,7 +20,6 @@ import javax.swing.BoxLayout;
 //Para dar formato y personalizar
 import java.awt.Font;
 import java.awt.Color;
-import java.util.Random;
 //actionPerformed
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -34,6 +32,7 @@ import java.awt.event.MouseEvent;
 import mapas.Mapa;
 import mapas.MapaOrdenado;
 import mapas.MapaSinOrdenar;
+import representarDatos.Egresado;
 
 
 public class JFrmBusqueda extends JFrame{
@@ -60,7 +59,9 @@ public class JFrmBusqueda extends JFrame{
   */
   public void initComponents(TextoBuscar tNombre, TextoBuscar tPromedio, TextoBuscar tProfesion){
 
-    botonCambiarArchivo.addMouseListener(new Transicion());
+    //Añado los actionListener
+    botonCambiarArchivo.addMouseListener(new TransicionCambiarArchivo());
+    botonBuscar.addMouseListener(new TransicionBuscar());
 
     //Declaracion de los botones de bsuqueda
     tNombre.addActionListener(new Probar());
@@ -150,7 +151,7 @@ public class JFrmBusqueda extends JFrame{
     }
   }
 
-  private class Transicion implements MouseListener{
+  private class TransicionCambiarArchivo implements MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent e){
@@ -173,6 +174,47 @@ public class JFrmBusqueda extends JFrame{
     @Override
     public void mouseReleased(MouseEvent e){}
 
+  }
+  
+  private class TransicionBuscar implements MouseListener{
+      @Override
+    public void mouseClicked(MouseEvent e){
+      TextoBuscar[] textos = textosBusqueda.getSelected();
+      
+      Integer[][] indices = new Integer[textos.length][];
+      
+      if(indices.length == 0){
+          //Mostrar mensaje de que no se seleccionó algo para buscar
+      }else{
+          for(int i = 0;i<textos.length;i++){
+              indices[i] = textos[i].buscar();
+          }
+          //Ya teniendo los índices, vamos a llevarlos a la siguiente ventana
+          if(indices.length == 1){
+              //Mandamos el resultado directamente a la tabla
+              Egresado[] egresados = JFrmInicio.obtenerEgresados(indices[0]);
+              String encabezado = "coincidencias con ".concat(textos[0].getText());
+              JFrmResultado ventanaRes = new JFrmResultado(encabezado,egresados);
+              ventanaRes.setVisible(true);
+              ventanaRes.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+          }else{
+              //Los mandamos a agrupar
+              
+          }
+      }
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e){}
+
+    @Override
+    public void mouseExited(MouseEvent e){}
+
+    @Override
+    public void mousePressed(MouseEvent e){}
+
+    @Override
+    public void mouseReleased(MouseEvent e){}
   }
 
 }

@@ -17,7 +17,7 @@ public class CSVRead implements ReadCSV{
     return convertirLineasATabla(campos);
   }
 
-  public void guardarPorLineas(String nombreDelArchivo){
+  private void guardarPorLineas(String nombreDelArchivo){
     try{
       BufferedReader leer = new BufferedReader(new FileReader(nombreDelArchivo));
       Object[] lineas = leer.lines().toArray();
@@ -36,7 +36,7 @@ public class CSVRead implements ReadCSV{
   }
 
 
-  public String[][] convertirLineasATabla(int campos){
+  private String[][] convertirLineasATabla(int campos){
     int desface = 0;
     //Falta importar el Stack
     ArrayList<Integer> lineasInvalidas = new ArrayList<Integer>();
@@ -65,7 +65,7 @@ public class CSVRead implements ReadCSV{
     return elementos;
   }
 
-  public static String[] lineToArray(String linea, int campos){
+  private static String[] lineToArray(String linea, int campos){
     String[] arreglo = new String[campos];
     try{
       for(int i=0;i<campos;i++){
@@ -95,7 +95,7 @@ public class CSVRead implements ReadCSV{
   //Método que valida si un String cumple el formato CSV con el número específico de campos
     //Nota: Si da tiempo, mejorar esto para que use expresiones regulares
     //Esta cosa no valida si antes de abrir comillas hay una coma
-  public static boolean validarFormatoCSV(String linea, int camposDeseados){
+  private static boolean validarFormatoCSV(String linea, int camposDeseados){
     int numeroDeCampos = 1;
     int cerrarComillas;
     try{

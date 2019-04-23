@@ -24,7 +24,13 @@ import java.awt.Color;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import botones.buscar.*;
+import csv.CSVRead;
+import csv.ReadCSV;
+import javax.swing.JOptionPane;
 import mapas.Mapa;
+import mapas.MapaOrdenado;
+import mapas.MapaSinOrdenar;
+import representarDatos.Egresado;
 
 public class JFrmInicio extends JFrame{
 
@@ -32,6 +38,7 @@ public class JFrmInicio extends JFrame{
   protected JButton botonAceptar;//Botón para aceptar
   protected JButton botonCancelar;//Botón para cancelar
   protected GrupoBotonArbol botonesArbol = new GrupoBotonArbol();//Grupo de radioButtons de los árboles
+  static String[][] alumnos;
 
   /**
   *Inicializamos los componentes básicos de la ventana
@@ -46,6 +53,14 @@ public class JFrmInicio extends JFrame{
 
     initComponents();
   }
+  
+  public static Egresado[] obtenerEgresados(Integer[] indices){
+        Egresado[] egresados = new Egresado[indices.length];
+        for(int i = 0;i<indices.length;i++){
+            egresados[i] = new Egresado(alumnos[indices[i]][0],Double.valueOf(alumnos[indices[i]][1]),alumnos[indices[i]][2]);
+        }
+        return egresados;
+    }
 
   /**
   *Método para iniciar los componentes
@@ -116,9 +131,9 @@ public class JFrmInicio extends JFrame{
 
   private class Transicion implements MouseListener{
 
-    private Mapa tNombre;
-    private Mapa tPromedio;
-    private Mapa tProfesion;
+    private Mapa mNombre;
+    private Mapa mPromedio;
+    private Mapa mProfesion;
 
     @Override
     public void mouseClicked(MouseEvent e){
@@ -128,46 +143,46 @@ public class JFrmInicio extends JFrame{
       Posteriormente se llenan esas instancias con datos del archivo.
       */
 
-      //Para propósitos de prueba: Vamos a llenar los árboles con valores predefinidos.
-      iniciarJTexts();
+      iniciarMapas();
       meterDatos();
-
-
-
+      
+      //Solo por propósitos de prueba
+      for(Integer i : mPromedio.search("22.8")){
+          System.out.println(i);
+      }
+      
       dispose();
-      JFrmBusqueda ventanaBusqueda = new JFrmBusqueda(tNombre, tPromedio, tProfesion);
+      JFrmBusqueda ventanaBusqueda = new JFrmBusqueda(mNombre, mPromedio, mProfesion);
       ventanaBusqueda.setVisible(true);
       ventanaBusqueda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
 
-    private void iniciarJTexts(){
+    private void iniciarMapas(){
       BotonArbol ar = botonesArbol.getSelection();
 
-      tNombre = ar.crearArbol();
-
-      tNombre = new TextoNombre(treeNom, hashNom);
-      tPromedio = new TextoPromedio(treeProm);
-      tProfesion = new TextoProfesion(treeProf, hashProf);
+      mNombre = new MapaSinOrdenar(ar.crearArbol());
+      mPromedio = new MapaOrdenado(ar.crearArbol());
+      mProfesion = new MapaSinOrdenar(ar.crearArbol());
     }
 
     private void meterDatos(){
-      meterDatosPrueba(tNombre);
-      meterDatosPrueba(tProfesion);
-      tPromedio.addDatum("9.2",10);
-      tPromedio.addDatum("0.01",5);
-      tPromedio.addDatum("2.9",6);
-      tPromedio.addDatum("9.9",9);
-      tPromedio.addDatum("10.01",7);
-
-    }
-
-    private void meterDatosPrueba(TextoBuscar text){
-      text.addDatum("hola",10);
-      text.addDatum("popup",5);
-      text.addDatum("sun",6);
-      text.addDatum("summer",9);
-      text.addDatum("popup",7);
+      String path = cajaTexto.getText();
+      ReadCSV leerArchivo = new CSVRead();
+      
+      alumnos = leerArchivo.read(path, 3);
+      
+      if(alumnos.length == 0){
+          //Imprimir mensaje de error
+          JOptionPane.showMessageDialog(null, "El archivo no tiene el formato requerido");
+      }else{
+          //Metemos los datos
+          for(int i = 0; i<alumnos.length;i++){
+          mNombre.add(alumnos[i][0],i);
+          mPromedio.add(alumnos[i][1],i);
+          mProfesion.add(alumnos[i][2],i);
+          }
+      }
     }
 
     @Override

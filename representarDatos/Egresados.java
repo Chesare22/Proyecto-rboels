@@ -24,7 +24,7 @@ public class Egresados{
   }
 
   public void add(String nombre, String profesion, float promedio){
-    egresados.add(new Egresado(nombre, profesion, promedio));
+    egresados.add(new Egresado(nombre, promedio,profesion));
   }
 
   public Egresado get(int index){
