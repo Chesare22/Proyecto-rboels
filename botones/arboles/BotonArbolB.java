@@ -1,7 +1,7 @@
 package botones.arboles;
 
 import arboles.Arbol;
-import arboles.avl.ArbolAVL;
+import arboles.b.ArbolB;
 
 public class BotonArbolB extends BotonArbol{
   public BotonArbolB(){
@@ -10,6 +10,6 @@ public class BotonArbolB extends BotonArbol{
 
   @Override
   public Arbol crearArbol(){
-    return new ArbolAVL();
+    return new ArbolB();
   }
 }

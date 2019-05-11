@@ -6,6 +6,7 @@
 package arboles.b;
 
 import arboles.Arbol;
+import arboles.MyDatum;
 import java.io.IOException;
 
 /**
@@ -13,12 +14,18 @@ import java.io.IOException;
  * @author César UwU
  */
 public class ArbolB implements Arbol{
-    private NodoB raiz = new NodoB();
+    //El padre de la raíz siempre va a ser nulo.
+    private final NodoB raiz = new NodoB(new NodoB());
     private final int nivel;
     
     public ArbolB(int nivel){
         this.nivel = nivel;
     }
+    
+    public ArbolB(){
+        this(10);
+    }
+    
     //Esto no devuelve el nodo en el que está, sino el que debería de tenerlo
     //Si el dato existe, devuelve una excepción
     //Siempre va a devolver un nodo hoja
@@ -43,4 +50,52 @@ public class ArbolB implements Arbol{
       return nodo.ramaByIndex(claves.length);
     }
   }
+    
+    @Override
+    public boolean contains(double dato){
+        try{
+            searchNodo(dato);
+            return false;
+        }catch(IOException io){
+            return true;
+        }
+    }
+    
+    @Override
+    public MyDatum buscar(double dato){
+        return searchDatum(dato, raiz);
+    }
+    
+    
+    private MyDatum searchDatum(double dato, NodoB nodo){
+        double[] claves = nodo.getClaves();
+        for(int i = 0;i<claves.length;i++){
+            if(claves[i] == dato){
+                return nodo.datumAt(i);
+            }else if(dato<claves[i]){
+                return searchDatum(dato,nodo.ramaByIndex(i));
+            }
+        }
+        return searchDatum(dato, nodo.ramaByIndex(claves.length));
+    }
+    
+    @Override
+    public void insertar(MyDatum dato){
+        try{
+            NodoB nodoInserta = searchNodo(dato.getClave());
+            insertar(dato,nodoInserta);
+        }catch(IOException io){
+            MyDatum existente = buscar(dato.getClave());
+            existente.add(dato.getIndices()[0]);
+        }
+    }
+    
+    private void insertar(MyDatum dato, NodoB nodo){
+        //Primero se añade y luego se parte
+        nodo.insertaOrdenado(dato);
+        
+        while(nodo.size()>nivel){
+            nodo = nodo.separar(nivel/2);
+        }
+    }
 }

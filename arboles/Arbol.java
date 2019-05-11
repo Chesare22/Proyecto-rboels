@@ -23,6 +23,7 @@ public interface Arbol {
 
     /**
      * Este método sirve para insertar datos dentro del árbol
+     * Se llama solo cuando el MyDatum no está presente en el árbol
      *
      * @param dato el dato a insertar
      */
