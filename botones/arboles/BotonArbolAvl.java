@@ -8,7 +8,6 @@ public class BotonArbolAvl extends BotonArbol{
     super("AVL");
   }
 
-  //Falta ser implementado
   @Override
   public Arbol crearArbol(){
     return new ArbolAVL();

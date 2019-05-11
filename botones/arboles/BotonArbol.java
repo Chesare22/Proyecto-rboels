@@ -9,8 +9,7 @@ public abstract class BotonArbol extends JRadioButton{
     super(text);
   }
   /**
-  *Agrupa los datos según el operador lógico seleccionado
-  *@param datos Datos a agrupar.
+  *Agrupa los datos según el tipo de árbol seleccionado
   *@return Indices de los egresados.
   */
   public abstract Arbol crearArbol();

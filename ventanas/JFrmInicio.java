@@ -23,7 +23,6 @@ import java.awt.Color;
 //Para hacer la transición entre ventanas
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
-import botones.buscar.*;
 import csv.CSVRead;
 import csv.ReadCSV;
 import javax.swing.JOptionPane;
@@ -54,6 +53,11 @@ public class JFrmInicio extends JFrame{
     initComponents();
   }
   
+  /**
+   * Este método sirve para obtener los datos de los egresados
+   * @param indices del archivode los alumnos que se desean encontrar
+   * @return los datos de los egresados
+   */
   public static Egresado[] obtenerEgresados(Integer[] indices){
         Egresado[] egresados = new Egresado[indices.length];
         for(int i = 0;i<indices.length;i++){
@@ -129,6 +133,7 @@ public class JFrmInicio extends JFrame{
     add(panel);
   }
 
+  
   private class Transicion implements MouseListener{
 
     private Mapa mNombre;
@@ -158,6 +163,9 @@ public class JFrmInicio extends JFrame{
 
     }
 
+    /**
+     * Este método es para crear los arboles e iniciar los mapas que encapsulan a los mismos
+     */
     private void iniciarMapas(){
       BotonArbol ar = botonesArbol.getSelection();
 
@@ -166,6 +174,9 @@ public class JFrmInicio extends JFrame{
       mProfesion = new MapaSinOrdenar(ar.crearArbol());
     }
 
+    /**
+     * Este método sirve para meter los datos a los mapas
+     */
     private void meterDatos(){
       String path = cajaTexto.getText();
       ReadCSV leerArchivo = new CSVRead();
@@ -201,6 +212,7 @@ public class JFrmInicio extends JFrame{
 
   /**
   *Método main para inicializar la ventana
+  * @param args
   */
   public static void main(String[] args) {
 

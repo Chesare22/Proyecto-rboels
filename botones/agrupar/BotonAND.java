@@ -7,7 +7,6 @@ public class BotonAND extends BotonAgrupar{
     super("AND");
   }
 
-  //Falta ser implementado
   @Override
   public Integer[] agrupar(Integer[][] datos){
     return Agrupa.and(datos);

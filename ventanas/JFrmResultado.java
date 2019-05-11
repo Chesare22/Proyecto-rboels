@@ -41,6 +41,8 @@ public class JFrmResultado extends JFrame{
   /**
   *Método para iniciar los Componentes
   *Recibe los mismos parámetros que el constructor
+  * @param encabezado de la tabla
+  * @param egresados datos de los egresados
   */
   public void initComponents(String encabezado, Egresado[] egresados){
 
@@ -89,35 +91,6 @@ public class JFrmResultado extends JFrame{
     }
 
     return lista;
-  }
-
-  /**
-  *Método main
-  */
-  public static void main(String[] args) {
-/*
-    Egresado[] e = new Egresado[15];
-    e[0] = new Egresado("Juan","Contador",6.9);
-    e[1] = new Egresado("Emilio","Licenciado",6.8);
-    e[2] = new Egresado("Eduardo","Maestro",120.8);
-    e[3] = new Egresado("Juan","Contador",6.9);
-    e[4] = new Egresado("Emilio","Licenciado",6.8);
-    e[5] = new Egresado("Eduardo","Maestro",120.8);
-    e[6] = new Egresado("Juan","Contador",6.9);
-    e[7] = new Egresado("Emilio","Licenciado",6.8);
-    e[8] = new Egresado("Eduardo","Maestro",120.8);
-    e[9] = new Egresado("Juan","Contador",6.9);
-    e[10] = new Egresado("Emilio","Licenciado",6.8);
-    e[11] = new Egresado("Eduardo","Maestro",120.8);
-    e[12] = new Egresado("Juan","Contador",6.9);
-    e[13] = new Egresado("Emilio","Licenciado",6.8);
-    e[14] = new Egresado("Eduardo","Maestro",120.8);
-
-
-    JFrmResultado frameTabla = new JFrmResultado("Egresados",e);
-
-    frameTabla.setVisible(true);
-    frameTabla.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);*/
   }
   
 }

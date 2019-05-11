@@ -24,7 +24,7 @@ import utilidades.Egresado;
 
 public class JFrmAgrupar extends JFrame{
 
-  private String[] busquedas;//label con el encabezado de la ventana
+  private final String[] busquedas;//label con el encabezado de la ventana
   private GrupoBotonAgrupar botonesAgruparLogicos = new GrupoBotonAgrupar();//Grupo de los botones lógicos
   private JButton botonAceptar;//Botón de aceptar
   private JButton botonCancelar;//Botón de cancelar
@@ -33,6 +33,7 @@ public class JFrmAgrupar extends JFrame{
   /**
   *Constructor de la clase que llama al método para iniciar los componentes
   *@param busquedas opciones de búsqueda que tiene el usuario
+  * @param indices Arreglo con los índices de las coincidencias con la búsqueda
   */
   public JFrmAgrupar(String[] busquedas, Integer[][] indices){
     setSize(600, 250);
@@ -46,7 +47,6 @@ public class JFrmAgrupar extends JFrame{
 
   /**
   *Método para iniciar los Componentes
-  *@param busquedas opciones de búsqueda que tiene el usuario
   */
   public void initComponents(){
     String e = "";
@@ -109,21 +109,8 @@ public class JFrmAgrupar extends JFrame{
   }
 
   /**
-  *Método main que inicia la ventana
-  */
-  public static void main(String[] args) {
-/*
-    String[] datos = new String[3];
-    datos[0] = "Nombre";
-    datos[1] = "Profesion";
-    datos[2] = "Promedio";
-
-    JFrmAgrupar ventanaBusqueda = new JFrmAgrupar(datos);
-    ventanaBusqueda.setVisible(true);
-
-    ventanaBusqueda.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);*/
-  }
-
+   * Método para hacer la transicion al seleccionar un método de agrupamiento
+   */
   private class Transicion implements MouseListener{
 
     @Override
@@ -157,6 +144,9 @@ public class JFrmAgrupar extends JFrame{
 
   }
   
+  /**
+   * Clase para el botón de Cancelar
+   */
   private class Cancelar implements MouseListener{
 
     @Override

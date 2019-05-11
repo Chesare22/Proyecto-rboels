@@ -2,7 +2,6 @@ package mapas;
 
 import arboles.Arbol;
 import arboles.MyDatum;
-import java.lang.NumberFormatException;
 
 public class MapaOrdenado implements Mapa{
   protected ContenedorOrdenado contenedor;

@@ -12,11 +12,20 @@ public class TextoBuscar extends JTextField{
     super(SIZE);
     this.mapa = mapa;
   }
+  
   /**
   *Obtiene una lista de egresados según el tipo de búsqueda.
   *@return Indices de los egresados en el archivo.
   */
   public Integer[] buscar(){
       return mapa.search(this.getText());
+  }
+  
+  /**
+   * Este método sirve para obtener el texto ingresado en el textField
+   * @return el texto ingresado
+   */
+  public String getTextoBusqueda(){
+      return this.getText();
   }
 }
