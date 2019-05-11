@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class ArbolB implements Arbol{
     //El padre de la raíz siempre va a ser nulo.
-    private final NodoB raiz = new NodoB(new NodoB());
+    private final NodoB raiz = new NodoB();
     private final int nivel;
     
     public ArbolB(int nivel){

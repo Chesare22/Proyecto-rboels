@@ -22,7 +22,7 @@ public class NodoB {
     }
     
     public NodoB(){
-        padre = null;
+        padre = new NodoB(null);
     }
     
     public int size(){return claves.size();}
