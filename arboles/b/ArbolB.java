@@ -23,7 +23,7 @@ public class ArbolB implements Arbol{
     }
     
     public ArbolB(){
-        this(10);
+        this(4);
     }
     
     //Esto no devuelve el nodo en el que está, sino el que debería de tenerlo
@@ -34,22 +34,24 @@ public class ArbolB implements Arbol{
     }
     
     private NodoB searchNodo(double dato, NodoB nodo) throws IOException{
+    double[] claves = nodo.getClaves();
+    for(int i = 0;i<claves.length;i++){
+        if(claves[i] == dato){
+            throw new IOException("Dato repetido");
+        }
+    }
     if(nodo.esHoja()){
       return nodo;
     }else{
-      double[] claves = nodo.getClaves();
+      
       for(int i = 0;i<claves.length;i++){
-        if(claves[i] == dato){
-          throw new IOException("Dato repetido");
-        }else{
-          if(claves[i]<dato){
+        if(claves[i]<dato){
             return nodo.ramaByIndex(i);
           }
         }
       }
       return nodo.ramaByIndex(claves.length);
     }
-  }
     
     @Override
     public boolean contains(double dato){

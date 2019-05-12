@@ -151,10 +151,6 @@ public class JFrmInicio extends JFrame{
       iniciarMapas();
       meterDatos();
       
-      //Solo por propósitos de prueba
-      for(Integer i : mPromedio.search("22.8")){
-          System.out.println(i);
-      }
       
       dispose();
       JFrmBusqueda ventanaBusqueda = new JFrmBusqueda(mNombre, mPromedio, mProfesion);
